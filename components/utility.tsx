@@ -1,3 +1,4 @@
+"use client";
 import {
   ContainerInterface,
   FlexContainerInterface,
@@ -5,6 +6,7 @@ import {
   ResponsiveGridContainerInterface,
   SectionInterface,
   TopographyInterface,
+  ButtonInterface,
 } from "@/modules/components-interface";
 
 export const Container = ({ children, className }: ContainerInterface) => {
@@ -134,20 +136,14 @@ export const SubTitle = ({
   );
 };
 
-export const Button = () => {};
-
-export const Card = () => {};
-
-export const Slider = () => {};
-
-export const NavBar = () => {};
-
-export const Footer = () => {};
-
-export const DropDown = () => {};
-
-export const ToolTip = () => {};
-
-export const Modal = () => {};
-
-export const Input = () => {};
+export const Button = ({ children, className, rounded }: ButtonInterface) => {
+  return (
+    <button
+      className={`px-2 py-1 text-white bg-primary${
+        rounded ? " rounded-md" : ""
+      }${className ? " " + className : ""}`}
+    >
+      {children}
+    </button>
+  );
+};

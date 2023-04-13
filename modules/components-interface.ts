@@ -23,3 +23,8 @@ export interface ResponsiveGridContainerInterface
 export interface SectionInterface extends ContainerInterface {
   separation: number;
 }
+
+export interface ButtonInterface extends ContainerInterface {
+  rounded?: boolean;
+  bg?: string;
+}

@@ -1,4 +1,7 @@
+import { Slider } from "@/components/slider";
+import { ThemeSwitch } from "@/components/themeSwitch";
 import {
+  Button,
   Container,
   FlexContainer,
   GridContainer,
@@ -7,8 +10,7 @@ import {
   SubTitle,
   Text,
   Title,
-} from "@/components/utils";
-import Image from "next/image";
+} from "@/components/utility";
 
 export default function Home() {
   return (
@@ -40,6 +42,24 @@ export default function Home() {
         <Text> this is a separation</Text>
         <Title>this is a title</Title>
         <SubTitle>this is a subtitle</SubTitle>
+      </Section>
+
+      <Button rounded={true} className="text-white bg-secondary">
+        <span>this is a button</span>
+      </Button>
+
+      <Slider>
+        <div className="border-black">
+          <p>this is a paragraph text</p>
+        </div>
+
+        <div className="border border-solid border-black">
+          this is another paragraphy text
+        </div>
+      </Slider>
+
+      <Section separation={5} className="mt-7">
+        <ThemeSwitch />
       </Section>
     </Container>
   );

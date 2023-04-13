@@ -15,9 +15,13 @@
     overflow-x: hidden;
   }
 
-  body {
+  html body {
     min-height: 100vh;
     font-size: sans-serif;
+  }
+
+  html.dark body {
+    @apply text-white bg-gray-700 transition-all;
   }
 }
 
