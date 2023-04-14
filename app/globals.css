@@ -17,7 +17,7 @@
 
   html body {
     min-height: 100vh;
-    font-size: sans-serif;
+    font-family: sans-serif;
   }
 
   html.dark body {
@@ -44,5 +44,12 @@
 
   .fs-ex-large {
     font-size: clamp(theme("fontSize.4xl"), 3.5vw, theme("fontSize.5xl"));
+  }
+
+  .navigation {
+    @apply absolute md:relative flex gap-4 flex-col md:flex-row top-full mt-2 shadow-md md:scale-100;
+    @apply md:shadow-none;
+    @apply rounded-xl md:rounded-none;
+    @apply px-4 py-4 md:p-0;
   }
 }

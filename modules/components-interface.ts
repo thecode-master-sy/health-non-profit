@@ -28,3 +28,8 @@ export interface ButtonInterface extends ContainerInterface {
   rounded?: boolean;
   bg?: string;
 }
+
+export interface TopographyInterface extends ContainerInterface {
+  weight?: number;
+  size?: number;
+}
