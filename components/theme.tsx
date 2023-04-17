@@ -15,30 +15,30 @@ export const useTheme = () => {
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   let defaultMode = "light";
 
-  if (
-    localStorage.mode === "dark" ||
-    (!("mode" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    defaultMode = "dark";
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-
   const [mode, setMode] = useState(defaultMode);
 
   useEffect(() => {
-    document.documentElement.classList.add(mode);
-  }, [mode]);
+    if (
+      localStorage.mode === "dark" ||
+      (!("mode" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      setMode("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
 
   const updateMode = () => {
     if (mode === "light") {
       setMode("dark");
       document.documentElement.classList.remove("light");
+      document.documentElement.classList.add("dark");
       localStorage.setItem("mode", "dark");
     } else {
       setMode("light");
       document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
       localStorage.setItem("mode", "light");
     }
   };
