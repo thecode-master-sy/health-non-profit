@@ -110,7 +110,7 @@ export const Title = ({
     <h1
       className={`leading-loose${
         weight ? ` font-[${weight}]` : ` font-extrabold`
-      }${size ? ` text-[${size}]` : ` fs-ex-large`}${
+      }${size ? ` text-[${size}]` : ` fs-large`}${
         className ? " " + className : ""
       }`}
     >

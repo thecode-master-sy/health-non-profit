@@ -1,5 +1,9 @@
 import { ThemeProvider } from "@/components/theme";
 import "./globals.css";
+import { NavBar } from "@/components/Navbar";
+import Link from "next/link";
+import { Container, FlexContainer } from "@/components/utility";
+import { Logo } from "@/components/Logo";
 
 export const metadata = {
   title: "Create Next App",
@@ -14,6 +18,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <header>
+          <Container>
+            <div className="flex gap-4 justify-between md:justify-normal items-center">
+              <Logo />
+              <NavBar>
+                <Link href={"/home"}>
+                  <li>Home</li>
+                </Link>
+                <Link href={"/about"}>
+                  <li>About</li>
+                </Link>
+                <Link href={"/blog"}>
+                  <li>Blog</li>
+                </Link>
+              </NavBar>
+            </div>
+          </Container>
+        </header>
+
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

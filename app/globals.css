@@ -47,7 +47,7 @@
   }
 
   .navigation {
-    @apply absolute md:relative flex gap-4 flex-col md:flex-row top-full mt-2 shadow-md md:scale-100;
+    @apply absolute md:relative flex gap-4 flex-col md:flex-row top-full md:top-0 mt-2 md:mt-0 shadow-md md:scale-100;
     @apply md:shadow-none;
     @apply rounded-xl md:rounded-none;
     @apply px-4 py-4 md:p-0;

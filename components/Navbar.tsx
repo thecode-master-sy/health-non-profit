@@ -25,7 +25,7 @@ export const NavBar = ({
       <motion.div
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 1 }}
-        className="cursor-pointer fs-large inline-block md:hidden px-2 py-2 border border-black rounded border-solid dark:border-white"
+        className="cursor-pointer fs-mid inline-block md:hidden px-2 py-2 border border-black rounded border-solid dark:border-white"
         onClick={() => setShowNav(!showNav)}
       >
         <RxHamburgerMenu />
