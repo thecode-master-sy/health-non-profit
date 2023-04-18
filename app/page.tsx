@@ -1,65 +1,99 @@
 import { Container, Title, Text } from "@/components/utility";
 import { Logo } from "@/components/Logo";
-import { NavBar } from "@/components/Navbar";
+import { MobileNav, NavBar } from "@/components/Navbar";
 import Link from "next/link";
-import Image from "next/image";
-import imageOne from "@/public/images/background-1.jpg";
-import imageTwo from "@/public/images/background-3.jpg";
-import imageThree from "@/public/images/background-4.jpg";
+import { BackGroundSlider } from "@/components/backgroundSlider";
+import { FaTwitter } from "react-icons/fa";
+import { FiInstagram } from "react-icons/fi";
+import { FaFacebookF } from "react-icons/fa";
+import { Hamburger } from "@/components/Hamburger";
 
 export default function Home() {
   return (
-    <div className="bg-hero">
-      <header>
-        <Container>
-          <div className="flex gap-7 justify-between md:justify-normal items-center">
-            <Logo />
+    <div className="scroll-origin">
+      <div className="bg-hero">
+        <header>
+          <Container>
+            <div className="flex gap-7 justify-between md:justify-normal items-center">
+              <Logo />
 
-            <NavBar>
-              <Link href={"/home"}>
-                <li>Home</li>
-              </Link>
-              <Link href={"/about"}>
-                <li>About</li>
-              </Link>
-              <Link href={"/blog"}>
-                <li>Blog</li>
-              </Link>
-            </NavBar>
+              <NavBar />
 
-            <button className="btn-primary ml-auto hidden md:block">
-              contact us
-            </button>
+              <Hamburger />
+
+              <div className="md:flex gap-4 ml-auto hidden">
+                <a href="https://twitter.com" className="link">
+                  <FaTwitter />
+                </a>
+
+                <a href="https://instagram.com" className="link">
+                  <FiInstagram />
+                </a>
+
+                <a href="https://facebook.com" className="link">
+                  <FaFacebookF />
+                </a>
+              </div>
+
+              <button className="btn-primary ml-auto hidden md:block">
+                contact us
+              </button>
+            </div>
+          </Container>
+        </header>
+
+        <Container className="py-8">
+          <div className="hero-section max-w-xl">
+            <p className="text-md">Here at COMPSHI we</p>
+            <Title>Promote sexual reproductive health and rights</Title>
+            <Text className="mt-4">
+              To promote sexual reproductive health and right, HIV/AIDS/malaria
+              and TB reduction among women youth and vulnerable population in
+              Nigeria
+            </Text>
+          </div>
+
+          <div className="mt-4 flex gap-4">
+            <button className="btn-primary">contact us</button>
+            <button className="btn-glass">about</button>
           </div>
         </Container>
-      </header>
 
-      <Container className="py-8">
-        <div className="hero-section max-w-xl">
-          <p className="text-md">Here at COMPSHI we</p>
-          <Title>Promote sexual reproductive health and rights</Title>
-          <Text className="mt-4">
-            To promote sexual reproductive health and right, HIV/AIDS/malaria
-            and TB reduction among women youth and vulnerable population in
-            Nigeria
-          </Text>
-        </div>
+        <BackGroundSlider />
+      </div>
 
-        <div className="mt-4">
-          <button className="btn-primary">contact us</button>
-        </div>
-      </Container>
+      <div className="bg-white">
+        <Container className="py-4">
+          <p>this is just random content to text the sticky attachment</p>
 
-      <div className="bg-image">
-        <div className="w-full min-h-screen relative">
-          <Image
-            src={imageOne}
-            layout="fill"
-            objectFit="cover"
-            alt="imageOne"
-          />
-        </div>
-        <div className="bg-overlay"></div>
+          <p>this is just random content to text the sticky attachment</p>
+
+          <p>this is just random content to text the sticky attachment</p>
+
+          <p>this is just random content to text the sticky attachment</p>
+
+          <p>this is just random content to text the sticky attachment</p>
+
+          <p>this is just random content to text the sticky attachment</p>
+
+          <p>this is just random content to text the sticky attachment</p>
+
+          <p>this is just random content to text the sticky attachment</p>
+
+          <p>this is just random content to text the sticky attachment</p>
+          <p>this is just random content to text the sticky attachment</p>
+          <p>this is just random content to text the sticky attachment</p>
+          <p>this is just random content to text the sticky attachment</p>
+          <p>this is just random content to text the sticky attachment</p>
+          <p>this is just random content to text the sticky attachment</p>
+          <p>this is just random content to text the sticky attachment</p>
+          <p>this is just random content to text the sticky attachment</p>
+          <p>this is just random content to text the sticky attachment</p>
+          <p>this is just random content to text the sticky attachment</p>
+          <p>this is just random content to text the sticky attachment</p>
+          <p>this is just random content to text the sticky attachment</p>
+          <p>this is just random content to text the sticky attachment</p>
+        </Container>
       </div>
     </div>
   );

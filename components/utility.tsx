@@ -12,7 +12,7 @@ import {
 export const Container = ({ children, className }: ContainerInterface) => {
   return (
     <div
-      className={`md:container md:mx-auto p-2${
+      className={`md:container md:mx-auto p-3${
         className ? " " + className : ""
       }`}
     >

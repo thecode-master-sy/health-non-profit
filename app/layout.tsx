@@ -1,5 +1,7 @@
 import { ThemeProvider } from "@/components/theme";
 import "./globals.css";
+import { NavContextProvider } from "@/components/NavContext";
+import { MobileNav, NavBar } from "@/components/Navbar";
 
 export const metadata = {
   title: "COMPHSI",
@@ -13,9 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
+      <NavContextProvider>
+        <body>
+          <MobileNav />
+          <ThemeProvider>{children}</ThemeProvider>
+        </body>
+      </NavContextProvider>
     </html>
   );
 }
