@@ -15,10 +15,16 @@ export const NavBar = ({
   return (
     <nav className={`relative ${className ? className : ""}`}>
       <ul
-        className={`navigation transition-all ${
+        className={`navigation transition-all z-10 ${
           showNav ? "scale-100" : "scale-0"
         } md:scale-100`}
       >
+        <span
+          className="text-4xl absolute md:hidden top-2 right-2 cursor-pointer"
+          onClick={() => setShowNav(false)}
+        >
+          &times;
+        </span>
         {children}
       </ul>
 

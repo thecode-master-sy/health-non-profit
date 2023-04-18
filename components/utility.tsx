@@ -12,7 +12,7 @@ import {
 export const Container = ({ children, className }: ContainerInterface) => {
   return (
     <div
-      className={`md:container md:mx-auto p-3${
+      className={`md:container md:mx-auto p-2${
         className ? " " + className : ""
       }`}
     >
@@ -108,7 +108,7 @@ export const Title = ({
 }: TopographyInterface) => {
   return (
     <h1
-      className={`leading-loose${
+      className={`leading-normal${
         weight ? ` font-[${weight}]` : ` font-extrabold`
       }${size ? ` text-[${size}]` : ` fs-large`}${
         className ? " " + className : ""
