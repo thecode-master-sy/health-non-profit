@@ -6,7 +6,7 @@ import { useNav, NavContextInterface } from "./NavContext";
 
 const UlVariant = {
   hidden: {
-    x: -100,
+    x: -1000,
     opacity: 0,
   },
 
@@ -30,7 +30,11 @@ export const MobileNav = ({ className }: { className?: string }) => {
   const { updateNav } = useNav() as NavContextInterface;
 
   return (
-    <nav className={`md:hidden ${className ? className : ""}`}>
+    <nav
+      className={`md:hidden ${showNav ? "block" : "hidden"} ${
+        className ? className : ""
+      }`}
+    >
       <motion.ul
         variants={UlVariant}
         animate={showNav ? "visible" : "hidden"}
