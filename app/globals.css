@@ -130,4 +130,8 @@
     aspect-ratio: 1.2/1;
     @apply rounded overflow-hidden;
   }
+
+  .image {
+    @apply aspect-[2/1] md:aspect-[1/1.1];
+  }
 }

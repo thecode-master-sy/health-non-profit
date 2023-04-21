@@ -13,7 +13,7 @@ module.exports = {
     screens: {
       sm: "480px",
       md: "800px",
-      lg: "976px",
+      lg: "1200px",
       xl: "1440px",
     },
 
@@ -55,6 +55,7 @@ module.exports = {
         silver: "#ecebff",
         "bubble-gum": "#ff77e9",
         bermuda: "#78dcca",
+        "light-bg": "#E9E5F1",
       },
     },
   },

@@ -9,7 +9,7 @@ export interface propsCardInterface {
 
 export const Cards = ({ placeholder, description }: propsCardInterface) => {
   return (
-    <div className="flex gap-4 p-3 card">
+    <div className="flex gap-4 py-3 pr-3 card">
       <div className="relative card--image">
         <Image
           src={placeholder}

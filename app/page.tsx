@@ -3,18 +3,21 @@ import {
   Title,
   Text,
   ResponsiveGridContainer,
+  SubTitle,
 } from "@/components/utility";
 import { Logo } from "@/components/Logo";
 import { NavBar } from "@/components/Navbar";
 import Link from "next/link";
 import { BackGroundSlider } from "@/components/backgroundSlider";
-import { FaTwitter } from "react-icons/fa";
+import { FaTwitter, FaPlus } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
 import { FaFacebookF, FaAngleRight } from "react-icons/fa";
 import { Hamburger } from "@/components/Hamburger";
 import placeholder from "@/public/images/activities-placeholder.jpg";
+import valueImage from "@/public/images/values.jpg";
 import { Cards, propsCardInterface } from "@/components/card";
 import Image from "next/image";
+import { DropDown } from "@/components/dropdown";
 
 const activitiesArray: propsCardInterface[] = [
   {
@@ -141,6 +144,65 @@ export default function Home() {
             ))}
           </div>
         </Container>
+
+        <div className="mt-9 py-9 bg-light-bg">
+          <Container>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="relative w-auto image rounded overflow-hidden">
+                <Image
+                  src={valueImage}
+                  layout="fill"
+                  objectFit="cover"
+                  alt="value-image"
+                  priority
+                />
+              </div>
+              <div>
+                <SubTitle className="text-center">Core Value</SubTitle>
+
+                <div>
+                  <DropDown
+                    title="Care and concern"
+                    content="For the wellbeing of our staff and communities we serve"
+                  />
+
+                  <DropDown
+                    title="Integrity"
+                    content="High standard of ethics"
+                  />
+
+                  <DropDown
+                    title="Accountability"
+                    content="Openness and prudent in management of resources"
+                  />
+
+                  <DropDown
+                    title="Care and concern"
+                    content="For the wellbeing of our staff and communities we serve"
+                  />
+
+                  <DropDown
+                    title="Professionalism"
+                    content="Conduct organization’s activities with expert knowledge and skills"
+                  />
+
+                  <DropDown
+                    title="Respect"
+                    content="Treats everybody with respect irrespective of ethnicity, religion, gender
+and sexual orientation"
+                  />
+
+                  <DropDown
+                    title="Innovation"
+                    content="Constantly explores local and international best practices in promoting
+sexual reproductive health and HIV/AIDS reduction, malaria and TB
+control."
+                  />
+                </div>
+              </div>
+            </div>
+          </Container>
+        </div>
       </div>
     </div>
   );
