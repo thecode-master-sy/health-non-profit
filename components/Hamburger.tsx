@@ -9,7 +9,7 @@ export const Hamburger = () => {
     <motion.div
       whileHover={{ scale: 1.2 }}
       whileTap={{ scale: 1 }}
-      className="cursor-pointer fs-mid inline-block md:hidden px-2 py-2 border border-white rounded border-solid"
+      className="cursor-pointer fs-large inline-block md:hidden"
       onClick={() => updateNav()}
     >
       <RxHamburgerMenu />

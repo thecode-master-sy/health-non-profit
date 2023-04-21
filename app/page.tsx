@@ -1,12 +1,63 @@
-import { Container, Title, Text } from "@/components/utility";
+import {
+  Container,
+  Title,
+  Text,
+  ResponsiveGridContainer,
+} from "@/components/utility";
 import { Logo } from "@/components/Logo";
-import { MobileNav, NavBar } from "@/components/Navbar";
+import { NavBar } from "@/components/Navbar";
 import Link from "next/link";
 import { BackGroundSlider } from "@/components/backgroundSlider";
 import { FaTwitter } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
-import { FaFacebookF } from "react-icons/fa";
+import { FaFacebookF, FaAngleRight } from "react-icons/fa";
 import { Hamburger } from "@/components/Hamburger";
+import placeholder from "@/public/images/activities-placeholder.jpg";
+import { Cards, propsCardInterface } from "@/components/card";
+import Image from "next/image";
+
+const activitiesArray: propsCardInterface[] = [
+  {
+    placeholder: placeholder,
+    description:
+      "Independent monitoring of polio, measles vaccination and Vitamin A supplementation",
+  },
+  {
+    placeholder: placeholder,
+    description:
+      "Malaria prevention and treatment campaign in Sanni Olopa and Shasha Ilupeju ",
+  },
+  {
+    placeholder: placeholder,
+    description:
+      "Male and female condom campaign and distribution in Alimosho,Oshodi and Isolo LGAs",
+  },
+  {
+    placeholder: placeholder,
+    description:
+      "Olaoluwa Health day-sickle cell disease campaign, HIV/AIDS awareness and Malaria prevention campaign",
+  },
+  {
+    placeholder: placeholder,
+    description:
+      "HIV/AIDS and Family Planning education among women in Agodo, Alimosho",
+  },
+  {
+    placeholder: placeholder,
+    description:
+      "Gender Partners Forum on hormonal contraceptive use and HIV infection in women",
+  },
+  {
+    placeholder: placeholder,
+    description:
+      "Working with women on HIV vaccine research advocacy and research literacy in Alimosho LGA",
+  },
+  {
+    placeholder: placeholder,
+    description:
+      "International sex workers right day celebration in partnership with SafeHaven International",
+  },
+];
 
 export default function Home() {
   return (
@@ -63,36 +114,32 @@ export default function Home() {
       </div>
 
       <div className="bg-white">
-        <Container className="py-4">
-          <p>this is just random content to text the sticky attachment</p>
+        <Container className="pt-7">
+          <div className="pb-1 border-b border-b-gray-300">
+            <div className="flex justify-between items-center">
+              <h1 className="fs-mid font-semibold">Activities</h1>
 
-          <p>this is just random content to text the sticky attachment</p>
+              <Link
+                href={"/acitivies"}
+                className="underline text-primary-light flex gap-1 items-center"
+              >
+                <span>veiw all activites</span>
+                <span>
+                  <FaAngleRight />
+                </span>
+              </Link>
+            </div>
+          </div>
 
-          <p>this is just random content to text the sticky attachment</p>
-
-          <p>this is just random content to text the sticky attachment</p>
-
-          <p>this is just random content to text the sticky attachment</p>
-
-          <p>this is just random content to text the sticky attachment</p>
-
-          <p>this is just random content to text the sticky attachment</p>
-
-          <p>this is just random content to text the sticky attachment</p>
-
-          <p>this is just random content to text the sticky attachment</p>
-          <p>this is just random content to text the sticky attachment</p>
-          <p>this is just random content to text the sticky attachment</p>
-          <p>this is just random content to text the sticky attachment</p>
-          <p>this is just random content to text the sticky attachment</p>
-          <p>this is just random content to text the sticky attachment</p>
-          <p>this is just random content to text the sticky attachment</p>
-          <p>this is just random content to text the sticky attachment</p>
-          <p>this is just random content to text the sticky attachment</p>
-          <p>this is just random content to text the sticky attachment</p>
-          <p>this is just random content to text the sticky attachment</p>
-          <p>this is just random content to text the sticky attachment</p>
-          <p>this is just random content to text the sticky attachment</p>
+          <div className="grid mt-4 activities-container">
+            {activitiesArray.map((activity, index) => (
+              <Cards
+                key={index}
+                placeholder={activity.placeholder}
+                description={activity.description}
+              />
+            ))}
+          </div>
         </Container>
       </div>
     </div>

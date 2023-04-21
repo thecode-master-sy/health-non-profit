@@ -57,7 +57,7 @@ export const BackGroundSlider = () => {
             initial={hasChange ? "inital" : "empty"}
             animate={hasChange ? "animate" : "empty"}
             exit={hasChange ? "exit" : "empty"}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.7, }}
             className="w-full image-container relative"
           >
             <Image
@@ -65,6 +65,7 @@ export const BackGroundSlider = () => {
               layout="fill"
               objectFit="cover"
               alt="imageOne"
+              priority
             />
           </motion.div>
         </AnimatePresence>

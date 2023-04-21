@@ -27,8 +27,8 @@ module.exports = {
       6: "3rem",
       7: "4rem",
       8: "5rem",
-      9: "8rem", 
-      10: "12rem"
+      9: "8rem",
+      10: "12rem",
     },
 
     fontSize: {
@@ -47,9 +47,9 @@ module.exports = {
         current: "currentColor",
         white: "#ffffff",
         primary: "#4F2394",
-        "primary-light":"#7339D0",
+        "primary-light": "#7339D0",
         secondary: "#AFA2FF",
-        "glacious-blue" : "#7A89C2",
+        "glacious-blue": "#7A89C2",
         metal: "#565584",
         tahiti: "#3ab7bf",
         silver: "#ecebff",

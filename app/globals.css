@@ -27,15 +27,15 @@
 
 @layer components {
   .responsive {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
   .fs-small {
-    font-size: clamp(1rem, 4vw, 1.2rem);
+    font-size: clamp(0.8rem, 4vw, 1rem);
   }
 
   .fs-mid {
-    font-size: clamp(1.2rem, 4vw, 1.4rem);
+    font-size: clamp(0.8rem, 4vw, 1.2rem);
   }
 
   .fs-large {
@@ -117,5 +117,17 @@
 
   .image-container {
     min-height: 120vh;
+  }
+
+  .activities-container {
+    @apply grid-cols-1 md:grid-cols-2 gap-4;
+  }
+
+  .card--image {
+    width: 100%;
+    max-width: 250px;
+    min-width: 100px;
+    aspect-ratio: 1.2/1;
+    @apply rounded overflow-hidden;
   }
 }
