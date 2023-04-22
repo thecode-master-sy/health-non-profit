@@ -1,6 +1,7 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
+import healthImage from "@/public/images/health.jpg";
 
 export interface propsCardInterface {
   placeholder: StaticImageData;
@@ -21,6 +22,34 @@ export const Cards = ({ placeholder, description }: propsCardInterface) => {
       </div>
       <div className="flex items-center">
         <p className="fs-mid font-semibold capitalize">{description} </p>
+      </div>
+    </div>
+  );
+};
+
+export interface memberCardInterface {
+  image: StaticImageData;
+  name: string;
+  title: string;
+}
+
+export const MemberCard = ({ image, name, title }: memberCardInterface) => {
+  return (
+    <div className="flex flex-col min-w-[300px]">
+      <div className="relative aspect-[1/1.2] rounded overflow-hidden">
+        <Image
+          src={image}
+          layout="fill"
+          objectFit="cover"
+          alt="value-image"
+          priority
+          draggable="false"
+        />
+      </div>
+
+      <div className="mt-5">
+        <p className="fs-mid font-bold uppercase">{name}</p>
+        <p className="mt-1 capitalize text-gray-400">{title}</p>
       </div>
     </div>
   );

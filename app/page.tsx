@@ -15,9 +15,11 @@ import { FaFacebookF, FaAngleRight } from "react-icons/fa";
 import { Hamburger } from "@/components/Hamburger";
 import placeholder from "@/public/images/activities-placeholder.jpg";
 import valueImage from "@/public/images/values.jpg";
-import { Cards, propsCardInterface } from "@/components/card";
+import healthImage from "@/public/images/health.jpg";
+import { Cards, MemberCard, propsCardInterface } from "@/components/card";
 import Image from "next/image";
 import { DropDown } from "@/components/dropdown";
+import { Slider } from "@/components/slider";
 
 const activitiesArray: propsCardInterface[] = [
   {
@@ -145,10 +147,10 @@ export default function Home() {
           </div>
         </Container>
 
-        <div className="mt-9 py-9 bg-light-bg">
+        <div className="mt-9 py-5 md:py-7 bg-light-bg">
           <Container>
             <div className="grid md:grid-cols-2 gap-4">
-              <div className="relative w-auto image rounded overflow-hidden">
+              <div className="relative rounded overflow-hidden md:h-full md:aspect-auto aspect-[2/1]">
                 <Image
                   src={valueImage}
                   layout="fill"
@@ -158,7 +160,9 @@ export default function Home() {
                 />
               </div>
               <div>
-                <SubTitle className="text-center">Core Value</SubTitle>
+                <SubTitle className="text-center font-bold">
+                  Core Values
+                </SubTitle>
 
                 <div>
                   <DropDown
@@ -189,17 +193,109 @@ export default function Home() {
                   <DropDown
                     title="Respect"
                     content="Treats everybody with respect irrespective of ethnicity, religion, gender
-and sexual orientation"
+                    and sexual orientation"
                   />
 
                   <DropDown
                     title="Innovation"
                     content="Constantly explores local and international best practices in promoting
-sexual reproductive health and HIV/AIDS reduction, malaria and TB
-control."
+                    sexual reproductive health and HIV/AIDS reduction, malaria and TB
+                    control."
                   />
                 </div>
               </div>
+            </div>
+          </Container>
+        </div>
+
+        <div className="mt-9 py-5 md:py-7">
+          <Container>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <Title>
+                  COMHPSI envisioned a Nigeria nation with improved sexual
+                  health
+                </Title>
+
+                <Text className="mt-5">
+                  Our mission is to promote sexual reproductive health and
+                  rights, HIV/AIDS/malaria and TB reduction among women and
+                  youth
+                </Text>
+
+                <Link href={"/about"} className="inline-block mt-5">
+                  <button className="btn-primary">Learn More</button>
+                </Link>
+              </div>
+
+              <div className="relative w-auto rounded overflow-hidden md:h-full md:aspect-auto aspect-[2/1]">
+                <Image
+                  src={healthImage}
+                  layout="fill"
+                  objectFit="cover"
+                  alt="value-image"
+                  priority
+                />
+              </div>
+            </div>
+          </Container>
+        </div>
+
+        <div className="mt-9 py-5 md:py-7">
+          <Container>
+            <Title className="text-center">
+              Members of the Board of Trustees
+            </Title>
+
+            <div className="mt-7">
+              <Slider>
+                <MemberCard
+                  image={healthImage}
+                  name="Rev. Sister Chika Dibia"
+                  title="Chairperson of the BOT"
+                />
+
+                <MemberCard
+                  image={healthImage}
+                  name="Mr. Basil Akunana"
+                  title="Estate Manager and project management consultant"
+                />
+                <MemberCard
+                  image={healthImage}
+                  name="Dr. Phina Okeke"
+                  title="medical doctor"
+                />
+                <MemberCard
+                  image={healthImage}
+                  name="Mr. Durueke Sixtus"
+                  title="businessman and a social entrepreneuredical doctor"
+                />
+                <MemberCard
+                  image={healthImage}
+                  name="Mrs. Jessica Fadoju"
+                  title="Chairperson of the BOT"
+                />
+                <MemberCard
+                  image={healthImage}
+                  name="Dr.Item Justin Atangwho"
+                  title="academician"
+                />
+                <MemberCard
+                  image={healthImage}
+                  name="Mrs. Ezeyibeya Syndy"
+                  title="economist"
+                />
+                <MemberCard
+                  image={healthImage}
+                  name="Mrs Durueke Chinyere F"
+                  title="Professional Nurse"
+                />
+                <MemberCard
+                  image={healthImage}
+                  name="Rev. Sister Chika Dibia"
+                  title="Chairperson of the BOT"
+                />
+              </Slider>
             </div>
           </Container>
         </div>

@@ -71,10 +71,18 @@ export const NavBar = () => {
   return (
     <nav className="hidden md:block">
       <ul className="navigation navigation-desktop">
-        <li>Home</li>
-        <li>About</li>
-        <li>Blog</li>
-        <li>Events</li>
+        <Link href={"/"}>
+          <li>Home</li>
+        </Link>
+        <Link href={"/about"}>
+          <li>About</li>
+        </Link>
+        <Link href={"/blog"}>
+          <li>Blog</li>
+        </Link>
+        <Link href={"/events"}>
+          <li>Events</li>
+        </Link>
       </ul>
     </nav>
   );

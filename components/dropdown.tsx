@@ -32,12 +32,12 @@ export const DropDown = ({ title, content }: DropDownProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.div className="drop-down py-4 border-b border-b-gray-500 border-solid">
+    <motion.div className="drop-down py-3 border-b border-b-gray-400 border-solid">
       <div className="drop-down--top flex justify-between items-center">
         <h1 className="fs-mid capitalize font-bold">{title}</h1>
 
         <motion.span
-          className={`p-1 fs-small rounded-full border-gray-500 border border-solid cursor-pointer transition-all ${
+          className={`p-1 text-sm rounded-full border-gray-400 border border-solid cursor-pointer transition-all ${
             isOpen ? "border-none bg-primary-light text-white" : "text-gray-500"
           }`}
           onClick={() => setIsOpen(!isOpen)}
