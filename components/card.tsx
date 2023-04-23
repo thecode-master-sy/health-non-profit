@@ -35,8 +35,8 @@ export interface memberCardInterface {
 
 export const MemberCard = ({ image, name, title }: memberCardInterface) => {
   return (
-    <div className="flex flex-col min-w-[300px]">
-      <div className="relative aspect-[1/1.2] rounded overflow-hidden">
+    <div className="flex flex-col min-w-[200px]">
+      <div className="relative aspect-[1/1.1] rounded overflow-hidden">
         <Image
           src={image}
           layout="fill"

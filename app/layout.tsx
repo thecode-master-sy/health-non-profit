@@ -2,6 +2,7 @@ import { ThemeProvider } from "@/components/theme";
 import "./globals.css";
 import { NavContextProvider } from "@/components/NavContext";
 import { MobileNav, NavBar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 
 export const metadata = {
   title: "COMPHSI",
@@ -19,6 +20,7 @@ export default function RootLayout({
         <body>
           <MobileNav />
           <ThemeProvider>{children}</ThemeProvider>
+          <Footer />
         </body>
       </NavContextProvider>
     </html>

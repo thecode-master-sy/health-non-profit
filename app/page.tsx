@@ -66,7 +66,7 @@ const activitiesArray: propsCardInterface[] = [
 
 export default function Home() {
   return (
-    <div className="scroll-origin">
+    <div>
       <div className="bg-hero">
         <header>
           <Container>
@@ -98,11 +98,11 @@ export default function Home() {
           </Container>
         </header>
 
-        <Container className="py-8">
-          <div className="hero-section max-w-xl">
+        <Container className="py-8 flex items-center flex-col text-center">
+          <div className="hero-section max-w-3xl">
             <p className="text-md">Here at COMPSHI we</p>
             <Title>Promote sexual reproductive health and rights</Title>
-            <Text className="mt-4">
+            <Text className="mt-4 fs-mid">
               To promote sexual reproductive health and right, HIV/AIDS/malaria
               and TB reduction among women youth and vulnerable population in
               Nigeria
@@ -296,6 +296,12 @@ export default function Home() {
                   title="Chairperson of the BOT"
                 />
               </Slider>
+            </div>
+
+            <div className="flex justify-center  mt-5">
+              <Link href={"/about"}>
+                <button className="btn-primary">Learn More</button>
+              </Link>
             </div>
           </Container>
         </div>

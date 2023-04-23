@@ -73,7 +73,7 @@
   }
 
   .btn-glass {
-    @apply px-4 py-1;
+    @apply px-5 py-1;
     @apply rounded;
     @apply text-white;
     background: linear-gradient(
@@ -97,7 +97,6 @@
     @apply relative;
     @apply text-white;
     min-height: 120vh;
-    transform-style: preserve-3d;
     z-index: -1;
   }
 
@@ -110,7 +109,6 @@
 
   .bg-image {
     @apply absolute h-full top-0 left-0;
-    transform: translateZ(-10px) scale(2);
     z-index: -1;
     width: 100vw;
   }
