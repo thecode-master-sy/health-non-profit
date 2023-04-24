@@ -67,38 +67,8 @@ const activitiesArray: propsCardInterface[] = [
 export default function Home() {
   return (
     <div>
-      <div className="bg-hero">
-        <header>
-          <Container>
-            <div className="flex gap-7 justify-between md:justify-normal items-center">
-              <Logo />
-
-              <NavBar />
-
-              <Hamburger />
-
-              <div className="md:flex gap-4 ml-auto hidden">
-                <a href="https://twitter.com" className="link">
-                  <FaTwitter />
-                </a>
-
-                <a href="https://instagram.com" className="link">
-                  <FiInstagram />
-                </a>
-
-                <a href="https://facebook.com" className="link">
-                  <FaFacebookF />
-                </a>
-              </div>
-
-              <button className="btn-primary ml-auto hidden md:block">
-                contact us
-              </button>
-            </div>
-          </Container>
-        </header>
-
-        <Container className="py-8 flex items-center flex-col text-center">
+      <div className="bg-hero flex align-center">
+        <Container className="py-8 flex items-center flex-col text-center justify-center">
           <div className="hero-section max-w-3xl">
             <p className="text-md">Here at COMPSHI we</p>
             <Title>Promote sexual reproductive health and rights</Title>
@@ -110,8 +80,13 @@ export default function Home() {
           </div>
 
           <div className="mt-4 flex gap-4">
-            <button className="btn-primary">contact us</button>
-            <button className="btn-glass">about</button>
+            <Link href={"/contact"}>
+              <button className="btn-primary">contact us</button>
+            </Link>
+
+            <Link href={"/about"}>
+              <button className="btn-glass">about</button>
+            </Link>
           </div>
         </Container>
 

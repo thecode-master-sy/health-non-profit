@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useNav, NavContextInterface } from "./NavContext";
@@ -38,7 +39,7 @@ export const MobileNav = ({ className }: { className?: string }) => {
       <motion.ul
         variants={UlVariant}
         animate={showNav ? "visible" : "hidden"}
-        className={`navigation navigation-mobile z-10`}
+        className={`navigation navigation-mobile z-20`}
       >
         <span
           className="text-4xl absolute top-2 right-2 cursor-pointer"
@@ -67,22 +68,47 @@ export const MobileNav = ({ className }: { className?: string }) => {
   );
 };
 
+const links = [
+  {
+    path: "/",
+    label: "Home",
+  },
+
+  {
+    path: "/about",
+    label: "About",
+  },
+
+  {
+    path: "/blog",
+    label: "Blog",
+  },
+
+  {
+    path: "/events",
+    label: "Events",
+  },
+];
+
 export const NavBar = () => {
+  const activeLink = usePathname();
+
   return (
     <nav className="hidden md:block">
       <ul className="navigation navigation-desktop">
-        <Link href={"/"}>
-          <li>Home</li>
-        </Link>
-        <Link href={"/about"}>
-          <li>About</li>
-        </Link>
-        <Link href={"/blog"}>
-          <li>Blog</li>
-        </Link>
-        <Link href={"/events"}>
-          <li>Events</li>
-        </Link>
+        {links.map((link, index) => (
+          <Link href={link.path} key={index} className="relative link">
+            {activeLink === link.path ? (
+              <motion.span
+                className="absolute w-full h-[3px] left-0 top-full bg-primary-light"
+                layoutId="active"
+              ></motion.span>
+            ) : (
+              ""
+            )}
+            <li>{link.label}</li>
+          </Link>
+        ))}
       </ul>
     </nav>
   );

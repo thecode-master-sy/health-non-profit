@@ -88,6 +88,18 @@
     @apply hover:bg-white hover:text-primary-light;
   }
 
+  .bg-glass {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.4)
+    );
+    backdrop-filter: blur(8px);
+
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px -30px rgba(0, 0, 0, 0.37);
+  }
+
   .scroll-origin {
     @apply h-screen overflow-y-auto overflow-x-hidden;
     perspective: 10px;
@@ -96,14 +108,13 @@
   .bg-hero {
     @apply relative;
     @apply text-white;
-    min-height: 120vh;
-    z-index: -1;
+    min-height: 100vh;
   }
 
   .bg-overlay {
     @apply absolute;
     @apply top-0 left-0 w-full min-h-full;
-    @apply bg-gray-800;
+    background-color: rgba(79, 35, 148, 0.6);
     mix-blend-mode: multiply;
   }
 
