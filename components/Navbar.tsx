@@ -48,7 +48,7 @@ export const MobileNav = ({ className }: { className?: string }) => {
           &times;
         </span>
 
-        <Link href={"/home"} className="link">
+        <Link href={"/"} className="link">
           <motion.li variants={listVariants}>Home</motion.li>
         </Link>
 

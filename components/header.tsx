@@ -9,7 +9,7 @@ import { Logo } from "@/components/Logo";
 export const Header = () => {
   return (
     <header className="fixed top-1 left-1 right-1 z-10 bg-glass rounded">
-      <Container className="md:py-0">
+      <Container className="py-0">
         <div className="flex gap-7 justify-between md:justify-normal items-center">
           <Logo />
 
