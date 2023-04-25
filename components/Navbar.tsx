@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -27,8 +27,13 @@ const listVariants = {
 };
 
 export const MobileNav = ({ className }: { className?: string }) => {
+  const pathname = usePathname()
   const { showNav } = useNav() as NavContextInterface;
   const { updateNav } = useNav() as NavContextInterface;
+
+  useEffect(() => {
+    updateNav();
+  }, [pathname])
 
   return (
     <nav

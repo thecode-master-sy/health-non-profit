@@ -57,7 +57,7 @@ export const BackGroundSlider = () => {
             initial={hasChange ? "inital" : "empty"}
             animate={hasChange ? "animate" : "empty"}
             exit={hasChange ? "exit" : "empty"}
-            transition={{ duration: 0.7, }}
+            transition={{ duration: 0.5 }}
             className="w-full image-container relative"
           >
             <Image
