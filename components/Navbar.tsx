@@ -27,13 +27,13 @@ const listVariants = {
 };
 
 export const MobileNav = ({ className }: { className?: string }) => {
-  const pathname = usePathname()
+  const pathname = usePathname();
   const { showNav } = useNav() as NavContextInterface;
   const { updateNav } = useNav() as NavContextInterface;
 
   useEffect(() => {
-    updateNav();
-  }, [pathname])
+    updateNav(false);
+  }, [pathname]);
 
   return (
     <nav
@@ -48,7 +48,7 @@ export const MobileNav = ({ className }: { className?: string }) => {
       >
         <span
           className="text-4xl absolute top-2 right-2 cursor-pointer"
-          onClick={() => updateNav()}
+          onClick={() => updateNav(false)}
         >
           &times;
         </span>
