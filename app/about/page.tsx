@@ -1,4 +1,4 @@
-import { Objective} from "@/components/objective";
+import { Objective } from "@/components/objective";
 import { Container, Title, Text, SubTitle } from "@/components/utility";
 import stackImage from "@/public/images/about.jpg";
 import storyImage from "@/public/images/who-we-are.jpg";
@@ -39,33 +39,39 @@ const Objectives = [
 
 const values = [
   {
+    numbering: "01",
     value: "Care and concern",
     description: " For the wellbeing of our staff and communities we serve",
   },
 
   {
+    numbering: "02",
     value: "Integrity",
     description: "High standard of ethics",
   },
 
   {
+    numbering: "03",
     value: "Accountability",
     description: "Openness and prudent in management of resources",
   },
 
   {
+    numbering: "04",
     value: "Professionalism",
     description:
       "Conduct organization’s activities with expert knowledge and skills",
   },
 
   {
+    numbering: "05",
     value: "Respect",
     description:
       "Treats everybody with respect irrespective of ethnicity, religion, gender and sexual orientation",
   },
 
   {
+    numbering: "06",
     value: "Innovation",
     description:
       "Constantly explores local and international best practices in promoting sexual reproductive health and HIV/AIDS reduction, malaria and TB control.",
@@ -76,7 +82,7 @@ export default function Page() {
   return (
     <main>
       <div className="relative z-[1]">
-        <div className="bg-light-bg absolute w-full lg:w-3/4 top-0 left-0  h-3/4 z-[-1]"></div>
+        <div className="bg-light-bg absolute w-full lg:w-3/4 top-0 left-0  h-3/4 z-[-1] hidden sm:block"></div>
 
         <Container className="pt-9 grid grid-cols-5 gap-4">
           <div className="col-span-5 lg:col-span-4 pr-4">
@@ -174,12 +180,18 @@ export default function Page() {
 
             <div>
               {values.map((value, index) => (
-                <div key={index} className="mt-4">
-                  <h3 className="font-bold fs-mid text-primary-light">
-                    {value.value}
-                  </h3>
+                <div key={index} className="mt-4 flex gap-4">
+                  <span className="align-top font-semibold text-primary-light">
+                    {value.numbering}
+                  </span>
 
-                  <p className="font-light">{value.description}</p>
+                  <div>
+                    <h3 className="font-bold fs-mid text-primary-light">
+                      {value.value}
+                    </h3>
+
+                    <p className="font-light">{value.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
