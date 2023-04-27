@@ -1,8 +1,15 @@
 import { Objective } from "@/components/objective";
-import { Container, Title, Text, SubTitle } from "@/components/utility";
+import {
+  Container,
+  Title,
+  Text,
+  SubTitle,
+  ResponsiveGridContainer,
+} from "@/components/utility";
 import stackImage from "@/public/images/about.jpg";
 import storyImage from "@/public/images/who-we-are.jpg";
 import Image from "next/image";
+import { MemberCard, propsCardInterface } from "@/components/card";
 
 const Objectives = [
   {
@@ -196,6 +203,61 @@ export default function Page() {
               ))}
             </div>
           </div>
+        </Container>
+      </div>
+
+      <div className="mt-9">
+        <Container>
+          <Title>Members of the Board of Trustees</Title>
+
+          <ResponsiveGridContainer minSize={200} className="mt-4">
+            <MemberCard
+              image={storyImage}
+              name="Rev. Sister Chika Dibia"
+              title="Chairperson of the BOT"
+            />
+
+            <MemberCard
+              image={storyImage}
+              name="Mr. Basil Akunana"
+              title="Estate Manager and project management consultant"
+            />
+            <MemberCard
+              image={storyImage}
+              name="Dr. Phina Okeke"
+              title="medical doctor"
+            />
+            <MemberCard
+              image={storyImage}
+              name="Mr. Durueke Sixtus"
+              title="businessman and a social entrepreneuredical doctor"
+            />
+            <MemberCard
+              image={storyImage}
+              name="Mrs. Jessica Fadoju"
+              title="Chairperson of the BOT"
+            />
+            <MemberCard
+              image={storyImage}
+              name="Dr.Item Justin Atangwho"
+              title="academician"
+            />
+            <MemberCard
+              image={storyImage}
+              name="Mrs. Ezeyibeya Syndy"
+              title="economist"
+            />
+            <MemberCard
+              image={storyImage}
+              name="Mrs Durueke Chinyere F"
+              title="Professional Nurse"
+            />
+            <MemberCard
+              image={storyImage}
+              name="Rev. Sister Chika Dibia"
+              title="Chairperson of the BOT"
+            />
+          </ResponsiveGridContainer>
         </Container>
       </div>
     </main>

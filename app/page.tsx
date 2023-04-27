@@ -20,6 +20,7 @@ import { Cards, MemberCard, propsCardInterface } from "@/components/card";
 import Image from "next/image";
 import { DropDown } from "@/components/dropdown";
 import { Slider } from "@/components/slider";
+import { FadeUp, FadeUpScroll } from "@/components/lib/framer/scroll";
 
 const activitiesArray: propsCardInterface[] = [
   {
@@ -69,25 +70,29 @@ export default function Home() {
     <div>
       <div className="bg-hero flex align-center">
         <Container className="py-8 flex items-center flex-col text-center justify-center">
-          <div className="hero-section max-w-3xl">
-            <p className="text-md">Here at COMPSHI we</p>
-            <Title>Promote sexual reproductive health and rights</Title>
-            <Text className="mt-4 fs-mid">
-              To promote sexual reproductive health and right, HIV/AIDS/malaria
-              and TB reduction among women youth and vulnerable population in
-              Nigeria
-            </Text>
-          </div>
+          <FadeUp>
+            <div className="hero-section max-w-3xl">
+              <p className="text-md">Here at COMPSHI we</p>
+              <Title>Promote sexual reproductive health and rights</Title>
+              <Text className="mt-4 fs-mid">
+                To promote sexual reproductive health and right,
+                HIV/AIDS/malaria and TB reduction among women youth and
+                vulnerable population in Nigeria
+              </Text>
+            </div>
+          </FadeUp>
 
-          <div className="mt-4 flex gap-4">
-            <Link href={"/contact"}>
-              <button className="btn-primary">contact us</button>
-            </Link>
+          <FadeUp>
+            <div className="mt-4 flex gap-4">
+              <Link href={"/contact"}>
+                <button className="btn-primary">contact us</button>
+              </Link>
 
-            <Link href={"/about"}>
-              <button className="btn-glass">about</button>
-            </Link>
-          </div>
+              <Link href={"/about"}>
+                <button className="btn-glass">about</button>
+              </Link>
+            </div>
+          </FadeUp>
         </Container>
 
         <BackGroundSlider />
@@ -111,7 +116,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid mt-4 activities-container">
+          <FadeUpScroll className="grid mt-4 activities-container">
             {activitiesArray.map((activity, index) => (
               <Cards
                 key={index}
@@ -119,68 +124,61 @@ export default function Home() {
                 description={activity.description}
               />
             ))}
-          </div>
+          </FadeUpScroll>
         </Container>
 
-        <div className="mt-9 py-5 md:py-7 bg-light-bg">
-          <Container>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="relative rounded overflow-hidden md:h-full md:aspect-auto aspect-[2/1]">
-                <Image
-                  src={valueImage}
-                  layout="fill"
-                  objectFit="cover"
-                  alt="value-image"
-                  priority
-                />
-              </div>
+        <div className="mt-9 bg-light-bg">
+          <div className="grid grid-cols-5 gap-4">
+            <div className="relative rounded overflow-hidden md:h-full md:aspect-auto aspect-[2/1] md:col-span-3 col-span-5">
+              <Image
+                src={valueImage}
+                layout="fill"
+                objectFit="cover"
+                alt="value-image"
+                priority
+              />
+            </div>
+            <div className="col-span-5 md:col-span-2 md:py-5 md:px-0 md:pr-4 px-4 pb-5">
+              <SubTitle className="text-center font-bold">Core Values</SubTitle>
+
               <div>
-                <SubTitle className="text-center font-bold">
-                  Core Values
-                </SubTitle>
+                <DropDown
+                  title="Care and concern"
+                  content="For the wellbeing of our staff and communities we serve"
+                />
 
-                <div>
-                  <DropDown
-                    title="Care and concern"
-                    content="For the wellbeing of our staff and communities we serve"
-                  />
+                <DropDown title="Integrity" content="High standard of ethics" />
 
-                  <DropDown
-                    title="Integrity"
-                    content="High standard of ethics"
-                  />
+                <DropDown
+                  title="Accountability"
+                  content="Openness and prudent in management of resources"
+                />
 
-                  <DropDown
-                    title="Accountability"
-                    content="Openness and prudent in management of resources"
-                  />
+                <DropDown
+                  title="Care and concern"
+                  content="For the wellbeing of our staff and communities we serve"
+                />
 
-                  <DropDown
-                    title="Care and concern"
-                    content="For the wellbeing of our staff and communities we serve"
-                  />
+                <DropDown
+                  title="Professionalism"
+                  content="Conduct organization’s activities with expert knowledge and skills"
+                />
 
-                  <DropDown
-                    title="Professionalism"
-                    content="Conduct organization’s activities with expert knowledge and skills"
-                  />
-
-                  <DropDown
-                    title="Respect"
-                    content="Treats everybody with respect irrespective of ethnicity, religion, gender
+                <DropDown
+                  title="Respect"
+                  content="Treats everybody with respect irrespective of ethnicity, religion, gender
                     and sexual orientation"
-                  />
+                />
 
-                  <DropDown
-                    title="Innovation"
-                    content="Constantly explores local and international best practices in promoting
+                <DropDown
+                  title="Innovation"
+                  content="Constantly explores local and international best practices in promoting
                     sexual reproductive health and HIV/AIDS reduction, malaria and TB
                     control."
-                  />
-                </div>
+                />
               </div>
             </div>
-          </Container>
+          </div>
         </div>
 
         <div className="mt-9 py-5 md:py-7">

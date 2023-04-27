@@ -2,6 +2,7 @@
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import healthImage from "@/public/images/health.jpg";
+import { fadeup } from "@/components/lib/framer/scroll";
 
 export interface propsCardInterface {
   placeholder: StaticImageData;
@@ -10,7 +11,7 @@ export interface propsCardInterface {
 
 export const Cards = ({ placeholder, description }: propsCardInterface) => {
   return (
-    <div className="flex gap-4 py-3 pr-3 card">
+    <motion.div className="flex gap-4 py-3 pr-3 card" variants={fadeup}>
       <div className="relative card--image">
         <Image
           src={placeholder}
@@ -23,14 +24,14 @@ export const Cards = ({ placeholder, description }: propsCardInterface) => {
       <div className="flex items-center">
         <p className="fs-mid font-semibold capitalize">{description} </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export interface memberCardInterface {
   image: StaticImageData;
   name: string;
-  title: string;
+  title?: string;
 }
 
 export const MemberCard = ({ image, name, title }: memberCardInterface) => {
