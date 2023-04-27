@@ -1,4 +1,4 @@
-import { Objective, Value } from "@/components/objective";
+import { Objective} from "@/components/objective";
 import { Container, Title, Text, SubTitle } from "@/components/utility";
 import stackImage from "@/public/images/about.jpg";
 import storyImage from "@/public/images/who-we-are.jpg";
