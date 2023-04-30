@@ -12,14 +12,26 @@ export const fadeup = {
     opacity: 1,
 
     transition: {
-      staggerChildren: 0.5,
+      duration: 0.8,
+      staggerChildren: 0.8,
     },
   },
 };
 
-export const FadeUp = ({ children }: { children: React.ReactNode }) => {
+export const FadeUp = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
   return (
-    <motion.div initial="initial" animate="animate" variants={fadeup}>
+    <motion.div
+      initial="initial"
+      animate="animate"
+      variants={fadeup}
+      className={className ? className : ""}
+    >
       {children}
     </motion.div>
   );
@@ -30,11 +42,11 @@ export const FadeUpScroll = ({
   className,
 }: {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }) => {
   return (
     <motion.div
-      className={className}
+      className={className ? className : ""}
       initial="initial"
       whileInView="animate"
       variants={fadeup}
@@ -48,9 +60,15 @@ export const FadeUpScroll = ({
 export const Stagger = ({
   children,
   variants,
+  className,
 }: {
   children: React.ReactNode;
   variants?: Object;
+  className?: string;
 }) => {
-  <motion.div variants={fadeup}>{children}</motion.div>;
+  return (
+    <motion.div variants={fadeup} className={className ? className : ""}>
+      {children}
+    </motion.div>
+  );
 };

@@ -185,16 +185,20 @@ export default function Home() {
           <Container>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <Title>
-                  COMHPSI envisioned a Nigeria nation with improved sexual
-                  health
-                </Title>
+                <FadeUpScroll>
+                  <Title>
+                    COMHPSI envisioned a Nigeria nation with improved sexual
+                    health
+                  </Title>
+                </FadeUpScroll>
 
-                <Text className="mt-5">
-                  Our mission is to promote sexual reproductive health and
-                  rights, HIV/AIDS/malaria and TB reduction among women and
-                  youth
-                </Text>
+                <FadeUpScroll>
+                  <Text className="mt-5">
+                    Our mission is to promote sexual reproductive health and
+                    rights, HIV/AIDS/malaria and TB reduction among women and
+                    youth
+                  </Text>
+                </FadeUpScroll>
 
                 <Link href={"/about"} className="inline-block mt-5">
                   <button className="btn-primary">Learn More</button>

@@ -10,6 +10,7 @@ import stackImage from "@/public/images/about.jpg";
 import storyImage from "@/public/images/who-we-are.jpg";
 import Image from "next/image";
 import { MemberCard, propsCardInterface } from "@/components/card";
+import { FadeUp, FadeUpScroll, Stagger } from "@/components/lib/framer/scroll";
 
 const Objectives = [
   {
@@ -93,23 +94,29 @@ export default function Page() {
 
         <Container className="pt-9 grid grid-cols-5 gap-4">
           <div className="col-span-5 lg:col-span-4 pr-4">
-            <p className="text-sm uppercase font-light">our vision statement</p>
-            <Title>
-              COMHPSI envisioned a Nigeria nation with improved sexual health
-              and psychosocial wellbeing of its citizen
-            </Title>
+            <FadeUp>
+              <p className="text-sm uppercase font-light">
+                our vision statement
+              </p>
+              <Title>
+                COMHPSI envisioned a Nigeria nation with improved sexual health
+                and psychosocial wellbeing of its citizen
+              </Title>
+            </FadeUp>
           </div>
 
           <div className="col-span-full lg:col-start-5">
-            <Text>
-              Our mission is to promote sexual reproductive health and rights,
-              HIV/AIDS/malaria and TB reduction among women youth and vulnerable
-              population through advocacy, communication, social mobilization
-              and community empowerment.
-            </Text>
+            <FadeUp>
+              <Text>
+                Our mission is to promote sexual reproductive health and rights,
+                HIV/AIDS/malaria and TB reduction among women youth and
+                vulnerable population through advocacy, communication, social
+                mobilization and community empowerment.
+              </Text>
+            </FadeUp>
           </div>
 
-          <div className="relative w-full aspect-[2/1] col-span-full rounded overflow-hidden">
+          <FadeUp className="relative w-full aspect-[2/1] col-span-full rounded overflow-hidden">
             <Image
               src={stackImage}
               layout="fill"
@@ -117,7 +124,7 @@ export default function Page() {
               alt="aboutimage"
               priority
             />
-          </div>
+          </FadeUp>
         </Container>
       </div>
 
@@ -136,28 +143,34 @@ export default function Page() {
               />
             </div>
 
-            <div className="py-4 md:pl-4 md:py-0 md:flex-1">
-              <p>
-                Community Health Promotion and Sustenance Initiative (COMHPSI)
-                is a non-governmental, not for profit organization that is focus
-                on improving the sexual reproductive health status of Nigerian
-                citizens, particularly women, youth and vulnerable population
-                through sexuality and HIV/AIDS education, psychosocial services
-                and economic empowerment programs.
-              </p>
+            <FadeUpScroll className="py-4 md:pl-4 md:py-0 md:flex-1">
+              <Stagger>
+                <p>
+                  Community Health Promotion and Sustenance Initiative (COMHPSI)
+                  is a non-governmental, not for profit organization that is
+                  focus on improving the sexual reproductive health status of
+                  Nigerian citizens, particularly women, youth and vulnerable
+                  population through sexuality and HIV/AIDS education,
+                  psychosocial services and economic empowerment programs.
+                </p>
+              </Stagger>
 
-              <p className="mt-4">
-                The organization was founded in 2008 and registered with the
-                Corporate Affairs Commission of Nigeria under the Company and
-                Allied Matters Decree of 1990.{" "}
-              </p>
+              <Stagger>
+                <p className="mt-4">
+                  The organization was founded in 2008 and registered with the
+                  Corporate Affairs Commission of Nigeria under the Company and
+                  Allied Matters Decree of 1990.{" "}
+                </p>
+              </Stagger>
 
-              <p className="mt-4">
-                The organization is governed by Board of Trustees and executive
-                committee that provide oversight to the day to day management of
-                its activities.
-              </p>
-            </div>
+              <Stagger>
+                <p className="mt-4">
+                  The organization is governed by Board of Trustees and
+                  executive committee that provide oversight to the day to day
+                  management of its activities.
+                </p>
+              </Stagger>
+            </FadeUpScroll>
           </div>
         </Container>
       </div>
@@ -165,43 +178,50 @@ export default function Page() {
       <div className="mt-9">
         <Container className="flex flex-col md:flex-row-reverse">
           <div className="flex-1">
-            <SubTitle className="uppercase text-primary-light">
-              our objectives
-            </SubTitle>
+            <FadeUpScroll>
+              <SubTitle className="uppercase text-primary-light">
+                our objectives
+              </SubTitle>
+            </FadeUpScroll>
 
-            <div>
+            <FadeUpScroll>
               {Objectives.map((objective, index) => (
-                <Objective
-                  numbering={objective.numbering}
-                  content={objective.content}
-                  key={index}
-                />
+                <Stagger key={index}>
+                  <Objective
+                    numbering={objective.numbering}
+                    content={objective.content}
+                  />
+                </Stagger>
               ))}
-            </div>
+            </FadeUpScroll>
           </div>
 
           <div className="flex-1 mt-9 md:mt-0 md:mr-4">
-            <SubTitle className="uppercase text-primary-light">
-              Core Values
-            </SubTitle>
+            <FadeUpScroll>
+              <SubTitle className="uppercase text-primary-light">
+                Core Values
+              </SubTitle>
+            </FadeUpScroll>
 
-            <div>
+            <FadeUpScroll>
               {values.map((value, index) => (
-                <div key={index} className="mt-4 flex gap-4">
-                  <span className="align-top font-semibold text-primary-light">
-                    {value.numbering}
-                  </span>
+                <Stagger key={index}>
+                  <div key={index} className="mt-4 flex gap-4">
+                    <span className="align-top font-semibold text-primary-light">
+                      {value.numbering}
+                    </span>
 
-                  <div>
-                    <h3 className="font-bold fs-mid text-primary-light">
-                      {value.value}
-                    </h3>
+                    <div>
+                      <h3 className="font-bold fs-mid text-primary-light">
+                        {value.value}
+                      </h3>
 
-                    <p className="font-light">{value.description}</p>
+                      <p className="font-light">{value.description}</p>
+                    </div>
                   </div>
-                </div>
+                </Stagger>
               ))}
-            </div>
+            </FadeUpScroll>
           </div>
         </Container>
       </div>
