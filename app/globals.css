@@ -142,5 +142,11 @@
 
   .image {
     @apply aspect-[2/1] md:aspect-[1/1.1];
+    @apply transition-transform;
   }
+}
+
+.hover-scale-image:hover .image {
+  transform: scale(1.1);
+  transition: transform ease-in 0.5s;
 }

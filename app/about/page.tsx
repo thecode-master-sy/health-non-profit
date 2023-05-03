@@ -130,7 +130,7 @@ export default function Page() {
 
       <div>
         <Container className="mt-9">
-          <Title className="text-center">who we are</Title>
+          <Title className="text-center capitalize">who we are</Title>
 
           <div className="flex flex-col-reverse md:flex-row md:mt-4">
             <div className="relative w-full aspect-[2/1] rounded overflow-hidden md:flex-1">
@@ -228,9 +228,11 @@ export default function Page() {
 
       <div className="mt-9">
         <Container>
-          <Title>Members of the Board of Trustees</Title>
+          <Title className="text-center">
+            Members of the Board of Trustees
+          </Title>
 
-          <ResponsiveGridContainer minSize={200} className="mt-4">
+          <ResponsiveGridContainer minSize={200} className="mt-5">
             <MemberCard
               image={storyImage}
               name="Rev. Sister Chika Dibia"
