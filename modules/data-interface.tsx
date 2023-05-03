@@ -3,6 +3,6 @@ export interface postsData {
   title: string;
   date: string;
   description: string;
-  tag: string;
   image: string;
+  tags?: string[];
 }
