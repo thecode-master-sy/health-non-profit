@@ -20,6 +20,7 @@ export default async function Page() {
       description: "OOP is a very important concept in programing",
       image:
         "https://images.unsplash.com/photo-1509099836639-18ba1795216d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1462&q=80",
+      tags: ["uncategorized"]
     },
 
     {
@@ -92,7 +93,7 @@ export default async function Page() {
       </div>
 
       <div className="mt-7">
-        <div className="grid md:grid-cols-3 gap-5 md:gap-4 lg:grid-cols-4">
+        <div className="grid md:grid-cols-3 gap-5 md:gap-4">
           {posts.slice(1).map((post, index) => (
             <Link
               href={`/blog/${post.title

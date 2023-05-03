@@ -232,7 +232,7 @@ export default function Page() {
             Members of the Board of Trustees
           </Title>
 
-          <ResponsiveGridContainer minSize={200} className="mt-5">
+          <ResponsiveGridContainer minSize={200} className="mt-6">
             <MemberCard
               image={storyImage}
               name="Rev. Sister Chika Dibia"

@@ -36,8 +36,8 @@ export interface memberCardInterface {
 
 export const MemberCard = ({ image, name, title }: memberCardInterface) => {
   return (
-    <div className="flex flex-col min-w-[200px]">
-      <div className="relative aspect-[1/1.1] rounded overflow-hidden">
+    <div className="flex flex-col min-w-[200px] items-center md:items-stretch">
+      <div className="relative aspect-[1/1.1] rounded overflow-hidden w-[200px] md:w-full">
         <Image
           src={image}
           layout="fill"
@@ -48,7 +48,7 @@ export const MemberCard = ({ image, name, title }: memberCardInterface) => {
         />
       </div>
 
-      <div className="mt-5">
+      <div className="mt-5 text-center md:text-left">
         <p className="fs-mid font-bold uppercase">{name}</p>
         <p className="mt-1 capitalize text-gray-400">{title}</p>
       </div>
