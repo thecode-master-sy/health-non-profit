@@ -49,6 +49,7 @@ module.exports = {
         white: "#ffffff",
         primary: "#4F2394",
         "primary-light": "#7339D0",
+        "light-border": "#b09bd1",
         secondary: "#AFA2FF",
         "glacious-blue": "#7A89C2",
         metal: "#565584",
