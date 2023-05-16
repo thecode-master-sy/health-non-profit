@@ -227,54 +227,7 @@ export default function Home() {
             </Title>
 
             <div className="mt-7">
-              <Slider>
-                <MemberCard
-                  image={healthImage}
-                  name="Rev. Sister Chika Dibia"
-                  title="Chairperson of the BOT"
-                />
-
-                <MemberCard
-                  image={healthImage}
-                  name="Mr. Basil Akunana"
-                  title="Estate Manager and project management consultant"
-                />
-                <MemberCard
-                  image={healthImage}
-                  name="Dr. Phina Okeke"
-                  title="medical doctor"
-                />
-                <MemberCard
-                  image={healthImage}
-                  name="Mr. Durueke Sixtus"
-                  title="businessman and a social entrepreneuredical doctor"
-                />
-                <MemberCard
-                  image={healthImage}
-                  name="Mrs. Jessica Fadoju"
-                  title="Chairperson of the BOT"
-                />
-                <MemberCard
-                  image={healthImage}
-                  name="Dr.Item Justin Atangwho"
-                  title="academician"
-                />
-                <MemberCard
-                  image={healthImage}
-                  name="Mrs. Ezeyibeya Syndy"
-                  title="economist"
-                />
-                <MemberCard
-                  image={healthImage}
-                  name="Mrs Durueke Chinyere F"
-                  title="Professional Nurse"
-                />
-                <MemberCard
-                  image={healthImage}
-                  name="Rev. Sister Chika Dibia"
-                  title="Chairperson of the BOT"
-                />
-              </Slider>
+              
             </div>
 
             <div className="flex justify-center  mt-5">

@@ -30,11 +30,11 @@ export const Header = () => {
           </a>
         </div>
 
-        <Link href={"/contact"} className="hidden md:block">
+        <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=GTvVlcSDbFXcGjzVkFNGvDjqXGPCcXmdwmhkhdJCCJfkSBkkqpbFlNvnNgKXpZTTzbRVLXCsLVDvh" className="hidden md:block">
           <button className="btn-primary ml-auto hidden md:block">
             contact us
           </button>
-        </Link>
+        </a>
       </div>
     </header>
   );

@@ -116,6 +116,10 @@ export default async function Page() {
           ))}
         </div>
       </div>
+
+      <div className="mt-7 flex justify-center">
+        <button className="btn-primary">Load More</button>
+      </div>
     </Container>
   );
 }

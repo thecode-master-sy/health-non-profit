@@ -2,6 +2,7 @@ import { Container, Title } from "@/components/utility";
 import { FaFacebook, FaLink, FaTwitter } from "react-icons/fa";
 import Image from "next/image";
 import stackImage from "@/public/images/about.jpg";
+import Link from "next/link";
 
 type ParamsType = {
   params: {
@@ -128,6 +129,12 @@ export default async function Page({ params: { post } }: ParamsType) {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="mt-7 flex justify-center">
+        <Link href="/blog">
+            <button className="btn-primary">Back To Blog</button>
+        </Link>
       </div>
     </Container>
   );
