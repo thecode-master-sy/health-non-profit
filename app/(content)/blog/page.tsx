@@ -5,7 +5,7 @@ import {
   ResponsiveGridContainer,
   Title,
 } from "@/components/utility";
-import { postsData } from "@/modules/data-interface";
+import { postsData } from "@/modules/data";
 import { getCurrentDate } from "@/utils/timefunctions";
 import Image from "next/image";
 import Link from "next/link";

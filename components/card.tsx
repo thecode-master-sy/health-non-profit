@@ -55,3 +55,11 @@ export const MemberCard = ({ image, name, title }: memberCardInterface) => {
     </div>
   );
 };
+
+export const CmsDashBoardCard = () => {
+  return(
+      <div>
+        
+      </div>
+  )
+}

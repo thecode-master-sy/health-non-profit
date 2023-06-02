@@ -4,6 +4,8 @@ import { FormEvent, useEffect, useState } from "react";
 import { protect, verify } from "@/utils/handleform";
 import { Axios } from "@/lib/auth/axios";
 import { createUser } from "@/lib/auth/admin";
+import { redirect, useRouter } from "next/navigation";
+import { Auth } from "@/lib/auth/user";
 
 type formvalues = {
     name: string;
@@ -21,10 +23,19 @@ type errorvalues = {
 // export function protect()
 
 export default function Page() {
+    
+    useEffect(() => {
+        const user = Auth();
+        if(!user) {
+            redirect("/studio/login");
+        }
+    }, [])
+       
     const [formValues, setFormValues] = useState<formvalues>({name: "", password: "", email: ""});
     const [errors, setErrors] = useState<errorvalues>({});
     const [loading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const router = useRouter();
 
     async function handleLogin(e:FormEvent<HTMLFormElement>){
         e.preventDefault();
@@ -65,9 +76,14 @@ export default function Page() {
            const response:any = await createUser(data);
             
            if(response.error) {
-            setErrorMessage("unauthorized!!")
+            setErrorMessage(response.error)
+            
+            setTimeout(() => {
+                router.push("/studio/login")                
+            }, 6000)
            }else {
-                console.log(response);
+                console.log("user created successfully!!")
+                router.push("/studio/dashboard");
            }
       
 
@@ -80,20 +96,20 @@ export default function Page() {
     useEffect(() => {
         setTimeout(() => {
             setErrorMessage("");
-        }, 4000)
+        }, 6000)
     }, [errorMessage])
     
   return (
       <div className="py-4 min-h-screen grid px-4">
-          <form className="grid gap-4 m-auto  w-full max-w-[400px]" onSubmit={(e) => handleLogin(e)}>
+          <form className="grid gap-4 m-auto  w-full max-w-[500px]" onSubmit={(e) => handleLogin(e)}>
               <p className="text-red-500 text-center">{errorMessage}</p>
-              <input type="text" name="name" placeholder="Name" value={formValues.name} onChange={(e) => setFormValues(prevState => ({...prevState, name:e.target.value}))} className="py-2 px-2 bg-light-bg text-gray-400 rounded border border-solid border-light-border focus:border-primary-light focus:outline-none transition-all"/>
+              <input type="text" name="name" placeholder="Name" value={formValues.name} onChange={(e) => setFormValues(prevState => ({...prevState, name:e.target.value}))} className="py-2 px-2 bg-light-bg text-gray-500 rounded border border-solid border-light-border focus:border-primary-light focus:outline-none transition-all"/>
               {errors.name ? (<p>{errors.name}</p>) : ""}
 
-              <input type="email" name="email" placeholder="Email" value={formValues.email} onChange={(e) => setFormValues(prevState => ({...prevState, email:e.target.value}))}  className="py-2 px-2 bg-light-bg text-gray-400 rounded border border-solid border-light-border focus:border-primary-light focus:outline-none transition-all"/>
+              <input type="email" name="email" placeholder="Email" value={formValues.email} onChange={(e) => setFormValues(prevState => ({...prevState, email:e.target.value}))}  className="py-2 px-2 bg-light-bg text-gray-500 rounded border border-solid border-light-border focus:border-primary-light focus:outline-none transition-all"/>
               {errors.email ? (<p>{errors.email}</p>) : ""}
 
-              <input type="password" name="password" placeholder="Password" value={formValues.password} onChange={(e) => setFormValues(prevState => ({...prevState, password:e.target.value}))}  className="py-2 px-2 bg-light-bg text-gray-400 rounded border border-solid border-light-border focus:border-primary-light focus:outline-none transition-all"/>
+              <input type="password" name="password" placeholder="Password" value={formValues.password} onChange={(e) => setFormValues(prevState => ({...prevState, password:e.target.value}))}  className="py-2 px-2 bg-light-bg text-gray-500 rounded border border-solid border-light-border focus:border-primary-light focus:outline-none transition-all"/>
               {errors.password ? (<p>{errors.password}</p>) : ""}
 
               <button className="btn-primary">Submit</button>

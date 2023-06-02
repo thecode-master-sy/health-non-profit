@@ -118,3 +118,27 @@ export const NavBar = () => {
     </nav>
   );
 };
+
+export const CmsNavBar = ({links}: {links: {label:string; path: string}[]}) => {
+  const activeLink = usePathname();
+
+  return (
+    <nav className="hidden md:block">
+      <ul className="navigation navigation-desktop">
+        {links.map((link:any, index:number) => (
+          <Link href={link.path} key={index} className="relative link">
+            {activeLink === link.path ? (
+              <motion.span
+                className="absolute w-full h-[3px] left-0 top-full bg-primary-light"
+                layoutId="active"
+              ></motion.span>
+            ) : (
+              ""
+            )}
+            <li>{link.label}</li>
+          </Link>
+        ))}
+      </ul>
+    </nav>
+  );
+};

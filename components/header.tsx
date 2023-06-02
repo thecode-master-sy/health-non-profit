@@ -3,8 +3,10 @@ import { Container } from "@/components/utility";
 import { Hamburger } from "@/components/Hamburger";
 import { FaTwitter, FaFacebookF } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
-import { NavBar } from "@/components/Navbar";
+import { CmsNavBar, NavBar } from "@/components/Navbar";
 import { Logo } from "@/components/Logo";
+import { usePathname } from "next/navigation";
+import { Button } from "./lib/ui/button";
 
 export const Header = () => {
   return (
@@ -39,3 +41,29 @@ export const Header = () => {
     </header>
   );
 };
+
+
+export const CmsHeader = ({Links, accountType}: {Links: {label: string; path: string}[]; accountType: string;}) => {
+  return (
+    <header className="fixed left-0 right-0 top-1 z-10 bg-glass rounded lg:container mx-auto px-2">
+      <div className="flex gap-4 justify-between md:justify-normal items-center">
+        <CmsNavBar links={Links}/>
+
+        <Hamburger />
+
+        <div className="ml-auto">
+          {accountType === "main" ? (
+          <Link href={'/studio/create-account'} className="hidden md:inline">
+            <button className="btn border border-solid border-primary py-1 px-4 rounded">Add new member</button>
+          </Link>): ""}
+
+          <Link href={'/studio/create'} className="ml-4">
+           <Button className="btn-primary h-auto mx-auto py-1">Create</Button>
+          </Link>
+        </div>
+      </div>
+    </header>
+
+  )  
+}
+

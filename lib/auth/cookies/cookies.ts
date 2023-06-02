@@ -1,6 +1,6 @@
 import { getCookie, setCookie } from "cookies-next";
 
-export function setcookie(name:string, value:string, age:any) {
+export function setcookie(name:string, value:string, age?:any) {
     setCookie(name, value, {
       path: "/",
       maxAge: age,
@@ -9,7 +9,11 @@ export function setcookie(name:string, value:string, age:any) {
 }
 
 export function getcookie(name:string) {
-  const cookie = getCookie(name);
+  const cookie:any = getCookie(name);
 
-  return cookie;
+  if(cookie) {
+    return JSON.parse(cookie)
+  }
+  
+  return null
 }

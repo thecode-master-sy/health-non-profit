@@ -4,6 +4,7 @@ import { FaTwitter, FaPlus } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
 import { FaFacebookF, FaAngleRight } from "react-icons/fa";
 
+
 export const Footer = () => {
   return (
     <div className="mt-9 bg-light-bg">

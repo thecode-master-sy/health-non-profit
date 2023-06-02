@@ -13,5 +13,7 @@ export interface User {
   email: string;
   created_at: string;
   updated_at: string;
+  access_token: string;
+  refresh_token: string;
   type: string;
 }

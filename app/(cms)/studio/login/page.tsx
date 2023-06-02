@@ -4,7 +4,8 @@ import { FormEvent, useEffect, useState } from "react";
 import { protect, verify } from "@/utils/handleform";
 import { Axios } from "@/lib/auth/axios";
 import { setcookie } from "@/lib/auth/cookies/cookies";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
+import { Auth } from "@/lib/auth/user";
 
 type formvalues = {
     password: string;
@@ -20,6 +21,14 @@ type errorvalues = {
 // export function protect()
 
 export default function Page() {
+
+    useEffect(() => {
+        const user = Auth();
+        if(user) {
+            redirect("/studio/dashboard");
+        } 
+    }, [])
+
     const router = useRouter();
     const [formValues, setFormValues] = useState<formvalues>({password: "", email: ""});
     const [errors, setErrors] = useState<errorvalues>({});
@@ -28,7 +37,7 @@ export default function Page() {
 
     async function handleLogin(e:FormEvent<HTMLFormElement>){
         e.preventDefault();
-       
+
         const data:formvalues = {
             email: protect(formValues.email),
             password: protect(formValues.password)
@@ -53,7 +62,7 @@ export default function Page() {
                     refresh_token: response.data.token.refresh_token
                 }
                 
-                setcookie("user", JSON.stringify(user), 86400);
+                setcookie("user", JSON.stringify(user), 86400 * 30);
 
                 router.push("/studio/dashboard");
             }

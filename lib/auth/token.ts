@@ -1,4 +1,5 @@
 import {Axios} from "@/lib/auth/axios";
+import { cookies } from "next/headers";
 
 export async function getAccessToken (authorization: string) {
     try {
@@ -10,7 +11,7 @@ export async function getAccessToken (authorization: string) {
 }
 
 export async function getAdminToken(authorization:string) {
-    try{
+    try {
         const response = await Axios.get("/api/main-admin/token/admin-token", {
             headers: {
                 Authorization: `Bearer ${authorization}`
@@ -18,7 +19,10 @@ export async function getAdminToken(authorization:string) {
         })
 
         return response;
-    }catch(error) {
-        return error;
+
+    }catch(error)  {
+        return {error: true}      
     }
+   
 }
+

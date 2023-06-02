@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 export function verify(value:string, pattern:RegExp) {
     if(value === "") return false;
 
@@ -22,3 +24,19 @@ export function protect(string: string) {
       return specialChars[char];
     });
 }
+
+const imageToBase64 = (event:ChangeEvent<HTMLInputElement>, callback:Function) => {
+    const Files = event.target.files!;
+    
+    const file = Files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        callback(reader.result);
+      };
+
+      reader.readAsDataURL(file);
+    }
+};

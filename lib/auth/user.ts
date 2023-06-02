@@ -1,18 +1,23 @@
-import { cookies } from 'next/headers';
+import { getcookie, setcookie } from './cookies/cookies';
+import { setCookie } from 'cookies-next';
+import { User } from '@/modules/data';
 
 export function Auth() {
-    const cookieStore = cookies();
     
-    const user = cookieStore.get("user");
+    const user = getcookie("user");
 
     if(!user) {
         return false
     }
        
-    return JSON.parse(user.value);
+    return user;
 }
 
 
-export function updateUser(newValue:string){
-
+export function updateUser(newvalue:User){
+    setCookie("user", newvalue, {
+        path: "/",
+    })
+    
+    return getcookie("user");
 }

@@ -11,6 +11,7 @@ import storyImage from "@/public/images/who-we-are.jpg";
 import Image from "next/image";
 import { MemberCard, propsCardInterface } from "@/components/card";
 import { FadeUp, FadeUpScroll, Stagger } from "@/components/lib/framer/scroll";
+import { Slider } from "@/components/slider";
 
 const Objectives = [
   {
@@ -223,55 +224,10 @@ export default function Page() {
           <Title className="text-center">
             Members of the Board of Trustees
           </Title>
-
-          <ResponsiveGridContainer minSize={200} className="mt-6">
-            <MemberCard
-              image={storyImage}
-              name="Rev. Sister Chika Dibia"
-              title="Chairperson of the BOT"
-            />
-
-            <MemberCard
-              image={storyImage}
-              name="Mr. Basil Akunana"
-              title="Estate Manager and project management consultant"
-            />
-            <MemberCard
-              image={storyImage}
-              name="Dr. Phina Okeke"
-              title="medical doctor"
-            />
-            <MemberCard
-              image={storyImage}
-              name="Mr. Durueke Sixtus"
-              title="businessman and a social entrepreneuredical doctor"
-            />
-            <MemberCard
-              image={storyImage}
-              name="Mrs. Jessica Fadoju"
-              title="Chairperson of the BOT"
-            />
-            <MemberCard
-              image={storyImage}
-              name="Dr.Item Justin Atangwho"
-              title="academician"
-            />
-            <MemberCard
-              image={storyImage}
-              name="Mrs. Ezeyibeya Syndy"
-              title="economist"
-            />
-            <MemberCard
-              image={storyImage}
-              name="Mrs Durueke Chinyere F"
-              title="Professional Nurse"
-            />
-            <MemberCard
-              image={storyImage}
-              name="Rev. Sister Chika Dibia"
-              title="Chairperson of the BOT"
-            />
-          </ResponsiveGridContainer>
+          
+          <div className="mt-7">
+            <Slider/>
+          </div>
         </Container>
       </div>
     </main>

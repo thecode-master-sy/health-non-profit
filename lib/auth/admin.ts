@@ -1,6 +1,8 @@
 import { Axios } from "@/lib/auth/axios";
-import { getAdminToken } from "./token";
+import { getAccessToken, getAdminToken } from "./token";
 import { getCookie } from "cookies-next";
+import { updateUser } from "./user";
+import { User } from "@/modules/data";
 
 interface dataInterface{
     name: string;
@@ -15,24 +17,24 @@ export async function createUser(data:dataInterface) {
 
         if(user) {
             const { access_token } = JSON.parse(user);
+            
+            const authorization:any = await getAdminToken(access_token);
 
-            const authorization = await getAdminToken(access_token);
+            
+            const {admin_token} = authorization.data;
 
-           
-
-            // if(authorization) {
-            //     const response = await Axios.post("/api/admin/create-admin", data, {
-            //         headers: {
-            //           'Content-Type': 'application/json',
-            //           'Authorization': `Bearer ${authorization.adm}`
-            //         }
-            //       })
-        
-            // }
-            return {error: false}
+            const response = await Axios.post("/api/admin/create-admin", data, {
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Authorization": `Bearer ${admin_token}`
+                }
+            })
+            
+            
+            return {error: false, data: response.data};
         }
     }catch(error) {
         console.log(error)
-        return {error: "unAuthorized"}
+        return {error: "unauthorized!!"}
     }
 }

@@ -8,7 +8,7 @@ import { Cards, MemberCard, propsCardInterface } from "@/components/card";
 import backgroundone from "@/public/images/background-1.jpg";
 import backgroundtwo from "@/public/images/background-2.jpg";
 import backgroundthree from "@/public/images/background-3.jpg";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { DropDown } from "@/components/dropdown";
 import { Slider } from "@/components/slider";
 import { FadeInLeftScroll, FadeUp, FadeUpScroll, MoveUp } from "@/components/lib/framer/scroll";
@@ -55,6 +55,50 @@ const activitiesArray: propsCardInterface[] = [
       "International sex workers right day celebration in partnership with SafeHaven International",
   },
 ];
+
+export const members: {image: StaticImageData; name:string; title: string; description: string;}[]  = [
+  {
+    name: "Rev. Sister Chika Dibia",
+    title: "Chairperson of BOT",
+    description: "This is a placeholder description i would input the main description later just for testing purposes This is a placeholder description i would input the main description later just for testing purposes",
+    image:placeholder
+  },
+
+  {
+    name: "Mr. Basil Akunana",
+    title: "Estate Manager and project management consultant",
+    description: "",
+    image:placeholder
+  },
+
+  {
+    name: "Dr. Phina Okeke",
+    title: "medical doctor",
+    description: "",
+    image:placeholder
+  },
+
+  {
+    name: "Mr. Dureke Sixtus",
+    title: "Businessman and a social enterprenerudical doctor",
+    description: "",
+    image:placeholder
+  },
+
+  {
+    name: "Mrs. Jessica Fadoju",
+    title: "Chairperson of BOT",
+    description: "",
+    image:placeholder
+  },
+ {
+    name: "Dr. Item Justin Atangwho",
+    title: "Academician",
+    description: "",
+    image:placeholder
+  },
+
+]
 
 export default function Home() {
   return (
@@ -227,14 +271,9 @@ export default function Home() {
             </Title>
 
             <div className="mt-7">
-              
+              <Slider/> 
             </div>
 
-            <div className="flex justify-center  mt-5">
-              <Link href={"/about"}>
-                <button className="btn-primary">Learn More</button>
-              </Link>
-            </div>
           </Container>
         </div>
       </div>
