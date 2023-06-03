@@ -56,49 +56,6 @@ const activitiesArray: propsCardInterface[] = [
   },
 ];
 
-export const members: {image: StaticImageData; name:string; title: string; description: string;}[]  = [
-  {
-    name: "Rev. Sister Chika Dibia",
-    title: "Chairperson of BOT",
-    description: "This is a placeholder description i would input the main description later just for testing purposes This is a placeholder description i would input the main description later just for testing purposes",
-    image:placeholder
-  },
-
-  {
-    name: "Mr. Basil Akunana",
-    title: "Estate Manager and project management consultant",
-    description: "",
-    image:placeholder
-  },
-
-  {
-    name: "Dr. Phina Okeke",
-    title: "medical doctor",
-    description: "",
-    image:placeholder
-  },
-
-  {
-    name: "Mr. Dureke Sixtus",
-    title: "Businessman and a social enterprenerudical doctor",
-    description: "",
-    image:placeholder
-  },
-
-  {
-    name: "Mrs. Jessica Fadoju",
-    title: "Chairperson of BOT",
-    description: "",
-    image:placeholder
-  },
- {
-    name: "Dr. Item Justin Atangwho",
-    title: "Academician",
-    description: "",
-    image:placeholder
-  },
-
-]
 
 export default function Home() {
   return (
