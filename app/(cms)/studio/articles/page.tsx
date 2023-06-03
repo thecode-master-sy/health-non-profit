@@ -58,7 +58,7 @@ export default async function Page() {
                         </div> 
                     </div>
                   ): articles.map((article:any, index:any) => (
-                    <div></div>
+                    <div key={index}></div>
                   ))
                 }   
             </div>
