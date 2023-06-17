@@ -6,6 +6,10 @@ import { Axios } from "@/lib/auth/axios";
 import { createUser } from "@/lib/auth/admin";
 import { redirect, useRouter } from "next/navigation";
 import { Auth } from "@/lib/auth/user";
+import { Button } from "@/components/lib/ui/button";
+import { Loader2 } from "lucide-react";
+import { useToast } from "@/components/lib/ui/use-toast";
+
 
 type formvalues = {
     name: string;
@@ -20,8 +24,6 @@ type errorvalues = {
 }
 
 
-// export function protect()
-
 export default function Page() {
     
     useEffect(() => {
@@ -30,7 +32,8 @@ export default function Page() {
             redirect("/studio/login");
         }
     }, [])
-       
+    
+    const {toast} = useToast();
     const [formValues, setFormValues] = useState<formvalues>({name: "", password: "", email: ""});
     const [errors, setErrors] = useState<errorvalues>({});
     const [loading, setIsLoading] = useState(false);
@@ -76,14 +79,16 @@ export default function Page() {
            const response:any = await createUser(data);
             
            if(response.error) {
-            setErrorMessage(response.error)
-            
-            setTimeout(() => {
-                router.push("/studio/login")                
-            }, 6000)
+                setErrorMessage(response.error)
+                setIsLoading(false)
+        
            }else {
-                console.log("user created successfully!!")
-                router.push("/studio/dashboard");
+                setIsLoading(false)
+                toast(
+                    {
+                        description: "user created successfully"
+                    }
+                )  
            }
       
 
@@ -112,7 +117,19 @@ export default function Page() {
               <input type="password" name="password" placeholder="Password" value={formValues.password} onChange={(e) => setFormValues(prevState => ({...prevState, password:e.target.value}))}  className="py-2 px-2 bg-light-bg text-gray-500 rounded border border-solid border-light-border focus:border-primary-light focus:outline-none transition-all"/>
               {errors.password ? (<p>{errors.password}</p>) : ""}
 
-              <button className="btn-primary">Submit</button>
+            {
+                loading ? (
+                    <Button disabled className="btn-primary py-1 h-auto">
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Please wait
+                    </Button>
+                ): (
+                    <Button className="btn-primary py-1 h-auto">
+                        Submit
+                    </Button>
+                )
+            }
+              
           </form>
       </div>
   )

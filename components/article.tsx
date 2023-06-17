@@ -1,8 +1,11 @@
 "use client";
-
 import Image from "next/image";
 import { SubTitle, Title } from "./utility";
 import { Tag } from "./tag";
+import { Card, CardDescription, CardFooter, CardTitle } from "@/components/lib/ui/card";
+import noImage from "@/public/images/no-image.jpg";
+import Link from "next/link";
+import { FaAngleUp, FaEdit } from "react-icons/fa";
 
 type ArticleProps = {
   thumbnail: string;
@@ -57,3 +60,27 @@ export const Article = ({
     </div>
   );
 };
+
+
+export const CmsArticle = ({imageUrl, title, date, id}:{imageUrl:string, title:string, date:string, id:string}) => {
+    return (
+      <Card>
+          <div className="p-4">
+              <div className="w-full relative overflow-hidden aspect-[1/0.8]">
+                  <Image src={imageUrl ? imageUrl : noImage} fill className="object-center object-cover" priority alt={title}/>
+              </div>
+          </div>
+                                                                
+          <CardFooter className="justify-between px-4 py-4">
+              <div>
+                <CardTitle className="leading-normal tracking-normal">{title}</CardTitle>
+                <CardDescription>{date}</CardDescription> 
+              </div>
+                                            
+              <Link href={`/studio/articles/${id}`}>
+                  <FaEdit className="text-gray-400 text-xl"/>
+              </Link>
+          </CardFooter>
+      </Card>
+    )
+}

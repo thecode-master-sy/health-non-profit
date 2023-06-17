@@ -1,4 +1,4 @@
-import { getCookie, setCookie } from "cookies-next";
+import { getCookie, setCookie, deleteCookie  } from "cookies-next";
 
 export function setcookie(name:string, value:string, age?:any) {
     setCookie(name, value, {
@@ -16,4 +16,10 @@ export function getcookie(name:string) {
   }
   
   return null
+}
+
+export function deletecookie(name:string) {
+    deleteCookie(name, { path: '/path' });
+
+    return true
 }

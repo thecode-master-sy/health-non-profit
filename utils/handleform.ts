@@ -25,7 +25,7 @@ export function protect(string: string) {
     });
 }
 
-const imageToBase64 = (event:ChangeEvent<HTMLInputElement>, callback:Function) => {
+export const imageToBase64 = (event:ChangeEvent<HTMLInputElement>, callback:Function) => {
     const Files = event.target.files!;
     
     const file = Files[0];

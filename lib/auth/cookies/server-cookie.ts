@@ -5,5 +5,9 @@ export function getServerCookie(name:string) {
 
    const cookie:any = cookieStore.get(name);
 
+   if(!cookie) {
+      return null
+   }
+
    return JSON.parse(cookie?.value);
 }

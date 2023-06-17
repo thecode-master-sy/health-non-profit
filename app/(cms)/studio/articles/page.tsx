@@ -2,29 +2,47 @@ import { Button } from "@/components/lib/ui/button";
 import { Container, SubTitle } from "@/components/utility";
 import { getServerCookie } from "@/lib/auth/cookies/server-cookie";
 import { getAllArticles } from "@/utils/articles";
-import { FaAngleUp } from "react-icons/fa";
+import { FaAngleUp, FaEdit } from "react-icons/fa";
 import noArticleImage from "@/public/images/noarticles.png";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { Card, CardDescription, CardFooter, CardTitle } from "@/components/lib/ui/card";
+import noImage from "@/public/images/no-image.jpg";
+import { getcookie } from "@/lib/auth/cookies/cookies";
+import { UpdateUserComponent } from "@/components/user";
+import { CmsArticle } from "@/components/article";
+import { Paginate } from "@/components/paginate";
 
 interface ArticleInterface {
+    _id: string;
+    title: string;
+    created_at: string;
+    image_url: string | null;
+    body: string;
+    updated_at: string | null;
     
 }
 
 export default async function Page() {
     const user = getServerCookie("user");
+
+    if(!user) {
+        redirect("/studio/login");
+    }
     
     const {access_token} = user;
-    
-    //console.log(access_token)
 
     const page = 1;
 
-    const limit = 8;
+    const limit = 6;
 
-    const {articles}= await getAllArticles(page, limit, access_token)
+    const {articles, newAccessToken} = await getAllArticles(page, limit, user)
+
+    const data = articles ? articles.data : [];
+
+    //console.log(data)
     
-    //console.log(articles)
 
     return (
         <Container className="py-9">
@@ -41,7 +59,7 @@ export default async function Page() {
             
             <div>
                 {
-                  articles.length === 0 ? (
+                  data.length === 0 ? (
                     <div>
                         <div className="relative w-[250px] h-[250px] mx-auto">
                             <Image src={noArticleImage} fill objectFit="contain" objectPosition="center" alt="no articles"/>
@@ -57,9 +75,11 @@ export default async function Page() {
                             </Button>
                         </div> 
                     </div>
-                  ): articles.map((article:any, index:any) => (
-                    <div key={index}></div>
-                  ))
+                  ):(
+                     <UpdateUserComponent newvalue={newAccessToken ? {...user, access_token:newAccessToken}: null}>
+                        <Paginate articles={articles} user={user}/>
+                     </UpdateUserComponent>
+                  )
                 }   
             </div>
         </Container>

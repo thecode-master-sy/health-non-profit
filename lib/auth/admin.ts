@@ -35,6 +35,6 @@ export async function createUser(data:dataInterface) {
         }
     }catch(error) {
         console.log(error)
-        return {error: "unauthorized!!"}
+        return {error: error}
     }
 }

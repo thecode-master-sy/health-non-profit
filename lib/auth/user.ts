@@ -21,3 +21,4 @@ export function updateUser(newvalue:User){
     
     return getcookie("user");
 }
+

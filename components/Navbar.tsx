@@ -4,6 +4,9 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useNav, NavContextInterface } from "./NavContext";
+import { Button } from "@/components/lib/ui/button";
+import { Logout } from "@/components/logout";
+import { Auth } from "@/lib/auth/user";
 
 const UlVariant = {
   hidden: {
@@ -139,6 +142,65 @@ export const CmsNavBar = ({links}: {links: {label:string; path: string}[]}) => {
           </Link>
         ))}
       </ul>
+    </nav>
+  );
+};
+
+
+export const CmsMobileNav = ({ className }: { className?: string }) => {
+  const user = Auth();
+  const pathname = usePathname();
+  const { showNav } = useNav() as NavContextInterface;
+  const { updateNav } = useNav() as NavContextInterface;
+  const [isLoggedIn, setLoggedIn] = useState(false)
+
+  useEffect(() => {
+    if(user) {
+      setLoggedIn(true)
+    }
+  }, [])
+
+  useEffect(() => {
+    updateNav(false);
+  }, [pathname]);
+
+  return (
+    <nav
+      className={`md:hidden ${showNav ? "block" : "hidden"} ${
+        className ? className : ""
+      }`}
+    >
+      <motion.ul
+        variants={UlVariant}
+        animate={showNav ? "visible" : "hidden"}
+        className={`navigation navigation-mobile z-20`}
+      >
+        <span
+          className="text-4xl absolute top-2 right-2 cursor-pointer"
+          onClick={() => updateNav(false)}
+        >
+          &times;
+        </span>
+
+        <Link href={"/studio/dashboard"} className="link">
+          <motion.li variants={listVariants}>Dashboard</motion.li>
+        </Link>
+
+        <Link href={"/studio/articles"} className="link">
+          <motion.li variants={listVariants}>Articles</motion.li>
+        </Link>
+
+        <Link href={"/studio/settings"} className="link">
+          <motion.li variants={listVariants}>Settings</motion.li>
+        </Link>
+
+        <Link href={"/studio/team"} className="link">
+          <motion.li variants={listVariants}>Team</motion.li>
+        </Link>
+
+        {isLoggedIn ? (<Logout/>): (<></>)} 
+      </motion.ul>
+
     </nav>
   );
 };

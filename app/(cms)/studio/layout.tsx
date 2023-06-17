@@ -1,11 +1,11 @@
 import { ThemeProvider } from "@/components/theme";
-import { Footer } from "@/components/Footer";
 import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 import "./globals.css";
-import { CmsNavBar} from "@/components/Navbar";
 import { CmsHeader } from "@/components/header";
 import { NavContextProvider } from "@/components/NavContext";
 import { cookies } from "next/headers";
+import { Toaster } from "@/components/lib/ui/toaster";
+import { CmsMobileNav } from "@/components/Navbar";
 
 if (process.env.NODE_ENV === 'production') {
   disableReactDevTools();
@@ -51,11 +51,13 @@ export default function RootLayout({
           
           <ThemeProvider>
             <NavContextProvider>
-                {user ? <CmsHeader Links={Links} accountType={user?.type}/>: ""}
+                <CmsMobileNav/>
+                <CmsHeader Links={Links} accountType={user?.type}/>
                 {children}
                 <div>
                   <p className="text-center">© 2023 COMPSHI. All rights reserved</p>
                 </div>
+                <Toaster/>
              </NavContextProvider>
           </ThemeProvider>
         </body>

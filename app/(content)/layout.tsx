@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/header";
 import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 
+
 if (process.env.NODE_ENV === 'production') {
   disableReactDevTools();
 }
