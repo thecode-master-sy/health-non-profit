@@ -212,6 +212,11 @@ export async function deleteArticle(id:string, user:any) {
     }
 }
 
-export async function getAllArticlesServer(authorization:string, page:number, limit:number) {
+export async function getPublicArticles() {
+    try {
 
+    }catch(error){
+        console.log(error);
+        return {error:true, msg: "something went wrong"};
+    }
 }

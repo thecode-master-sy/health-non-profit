@@ -12,6 +12,8 @@ import Image, { StaticImageData } from "next/image";
 import { DropDown } from "@/components/dropdown";
 import { Slider } from "@/components/slider";
 import { FadeInLeftScroll, FadeUp, FadeUpScroll, MoveUp } from "@/components/lib/framer/scroll";
+import { getAllArticles } from "@/utils/articles";
+import { Paginate } from "@/components/paginate";
 
 const activitiesArray: propsCardInterface[] = [
   {
@@ -55,6 +57,8 @@ const activitiesArray: propsCardInterface[] = [
       "International sex workers right day celebration in partnership with SafeHaven International",
   },
 ];
+
+
 
 
 export default function Home() {
@@ -164,7 +168,7 @@ export default function Home() {
 
                 <DropDown
                   title="Professionalism"
-                  content="Conduct organization’s activities with expert knowledge and skills"
+                  content="Conduct organization activities with expert knowledge and skills"
                 />
 
                 <DropDown
@@ -232,6 +236,16 @@ export default function Home() {
             </div>
 
           </Container>
+        </div>
+
+        <div>
+            <Container>
+                <Title>Latest From Our Blog</Title>
+
+                <div>
+
+                </div>
+            </Container>
         </div>
       </div>
     </div>

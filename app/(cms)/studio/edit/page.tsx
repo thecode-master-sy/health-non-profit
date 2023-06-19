@@ -8,7 +8,7 @@ import { Textarea } from "@/components/lib/ui/textarea";
 import { Separator } from "@/components/lib/ui/separator"
 import { Button } from "@/components/lib/ui/button"
 import { Loader2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import { useToast } from "@/components/lib/ui/use-toast";
 import { editArticleTitle, editArticleBody } from "@/utils/articles";
 import { redirect, useRouter } from "next/navigation";
@@ -36,13 +36,12 @@ export default function Page() {
 
 	const id = searchParams.get("id");
 
-	console.log(id);
-
-	async function updateTitle(e) {
+	async function updateTitle(e:FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 
 		setTitle((prevState) => ({...prevState, updating: true}))
 
+		/*@ts-ignore*/
 		const response = await editArticleTitle(title.value, id, user);
 
 		if(!response.error) {
@@ -58,15 +57,15 @@ export default function Page() {
 		}
 	}
 
-	async function updateImage(e) {
+	async function updateImage(e:FormEvent<HTMLFormElement>) {
 
 	}
 
-	async function updateBody(e) {
+	async function updateBody(e:FormEvent<HTMLFormElement>) {
 		e.preventDefault()
 
 		setBody((prevState) => ({...prevState, updating: true}));
-
+		/*@ts-ignore*/
 		const response = await editArticleBody(body.value, id, user);
 
 		if(!response.error) {

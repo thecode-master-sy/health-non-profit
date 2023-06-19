@@ -4,7 +4,7 @@ import { Input } from "@/components/lib/ui/input";
 import { Label } from "@/components/lib/ui/label";
 import { Container, SubTitle } from "@/components/utility";
 import { Auth } from "@/lib/auth/user";
-import { useState, useEffect } from "react"
+import { useState, useEffect, FormEvent } from "react"
 import { redirect, useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { updateUserName, updateUserPassword, updateUserEmail } from "@/utils/account"
@@ -29,7 +29,7 @@ export default function Page() {
     const [newAccessToken, setAccessToken] = useState(null);
 
 
-    async function updateName(e) {
+    async function updateName(e:FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
         setName((prevState) => ({...prevState, updating:true}));
@@ -49,7 +49,7 @@ export default function Page() {
         }
     }
 
-    async function updatePassword(e) {
+    async function updatePassword(e:FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
         setPassword((prevState) => ({...prevState, updating:true}));
@@ -65,11 +65,10 @@ export default function Page() {
             })
         }else {
             setPassword((prevState) => ({...prevState, updating:false}));
-            console.log(error)
         }
     }
 
-    async function updateEmail(e) {
+    async function updateEmail(e:FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
         setEmail((prevState) => ({...prevState, updating:true}));
@@ -85,7 +84,6 @@ export default function Page() {
             })
         }else {
             setEmail((prevState) => ({...prevState, updating:false}));
-            console.log(error)
         }
     }
 

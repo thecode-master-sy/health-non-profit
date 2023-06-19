@@ -15,12 +15,12 @@ interface ArticlesInterface {
 	total_pages: number;
 }
 
-export const Paginate = ({articles, user}:{articles:ArticlesInterface; user:any}):JSX.element => {
+export const Paginate = ({articles, user}:{articles:ArticlesInterface; user:any})=> {
 	const [reactiveArticles, setArticles] = useState<ArticlesInterface>(articles);
 	const [data, setData] = useState(reactiveArticles.data);
 	const [loading, setIsLoading] = useState(false);
 
-	async function loadMore(page, limit){
+	async function loadMore(page:number, limit:number, user:any){
 		setIsLoading(true);
 		const response = await getAllArticles(page, limit, user);
 
@@ -30,8 +30,6 @@ export const Paginate = ({articles, user}:{articles:ArticlesInterface; user:any}
 			setData((prevState) => ([...prevState, ...response.articles.data]));
 		}else {
 			setIsLoading(false);
-
-			console.log(response.msg);
 		}
 	}
 
