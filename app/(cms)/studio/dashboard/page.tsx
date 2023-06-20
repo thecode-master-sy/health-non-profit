@@ -29,8 +29,6 @@ export default async function Page() {
 
     const data = articles ? articles.data : [];
 
-    //console.log(articles);
-
     
     return (
         <Container className="py-9">

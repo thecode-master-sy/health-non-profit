@@ -203,8 +203,6 @@ export async function deleteArticle(id:string, user:any) {
 
         const data = await response.json();
 
-        console.log(data)
-
         return {error:false, msg:"article has been deleted successfully", newAccessToken:newAccessToken};
     }catch(error) {
         console.log(error)

@@ -40,8 +40,6 @@ export default async function Page() {
     const {articles, newAccessToken} = await getAllArticles(page, limit, user)
 
     const data = articles ? articles.data : [];
-
-    //console.log(data)
     
 
     return (
