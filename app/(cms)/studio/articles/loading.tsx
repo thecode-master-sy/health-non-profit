@@ -26,7 +26,7 @@ export default function Loader() {
                     {
                         
                         array.map((item:number, index:number) => (
-                            <Card>
+                            <Card key={index}>
                                 <div className="p-4">
                                     <div className="w-full  aspect-[1/0.8]">
                                         <Skeleton className="h-full w-full" />
