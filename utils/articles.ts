@@ -51,7 +51,6 @@ export async function getAllArticles(page:number, limit:number, user:any) {
 
         const data = await response.json();
 
-
         return {error: false, articles: data.data, newAccessToken: newAccessToken};
     }catch(error) {
         console.log(error);

@@ -1,0 +1,141 @@
+[debug] [2023-06-20T08:07:04.977Z] ----------------------------------------------------------------------
+[debug] [2023-06-20T08:07:04.981Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hp\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-06-20T08:07:04.982Z] CLI Version:   12.4.0
+[debug] [2023-06-20T08:07:04.982Z] Platform:      win32
+[debug] [2023-06-20T08:07:04.983Z] Node Version:  v18.12.1
+[debug] [2023-06-20T08:07:04.985Z] Time:          Tue Jun 20 2023 09:07:04 GMT+0100 (West Africa Standard Time)
+[debug] [2023-06-20T08:07:04.985Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-06-20T08:07:05.617Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-06-20T08:07:05.619Z] > authorizing via signed-in user (chinemeremnwaegerue@gmail.com)
+[debug] [2023-06-20T08:07:05.620Z] [iam] checking project myfirebasefreehosting for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-06-20T08:07:05.625Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/myfirebasefreehosting:testIamPermissions [none]
+[debug] [2023-06-20T08:07:05.626Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/myfirebasefreehosting:testIamPermissions x-goog-quota-user=projects/myfirebasefreehosting
+[debug] [2023-06-20T08:07:05.627Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/myfirebasefreehosting:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-06-20T08:07:07.028Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/myfirebasefreehosting:testIamPermissions 200
+[debug] [2023-06-20T08:07:07.029Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/myfirebasefreehosting:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-06-20T08:07:07.034Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myfirebasefreehosting [none]
+[debug] [2023-06-20T08:07:07.775Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myfirebasefreehosting 200
+[debug] [2023-06-20T08:07:07.776Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myfirebasefreehosting {"projectId":"myfirebasefreehosting","projectNumber":"850363807230","displayName":"Health Non Profit","name":"projects/myfirebasefreehosting","resources":{"hostingSite":"myfirebasefreehosting"},"state":"ACTIVE","etag":"1_dcc12cd5-6ea1-471e-81f5-31b7680b9bcd"}
+[info] 
+[info] === Deploying to 'myfirebasefreehosting'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-06-20T08:07:07.818Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/myfirebasefreehosting/versions [none]
+[debug] [2023-06-20T08:07:07.819Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/myfirebasefreehosting/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-06-20T08:07:09.937Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/myfirebasefreehosting/versions 200
+[debug] [2023-06-20T08:07:09.938Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/myfirebasefreehosting/versions {"name":"projects/850363807230/sites/myfirebasefreehosting/versions/293a81f2148c42b7","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[myfirebasefreehosting]: beginning deploy... 
+[info] i  hosting[myfirebasefreehosting]: found 15 files in public 
+[debug] [2023-06-20T08:07:10.038Z] [hosting] uploading with 200 concurrency
+[debug] [2023-06-20T08:07:10.042Z] [hosting] hash cache [cHVibGlj] not populated
+[debug] [2023-06-20T08:07:10.553Z] [hosting] hash cache [cHVibGlj] stored for 15 files
+[debug] [2023-06-20T08:07:10.553Z] [hosting][hash queue][FINAL] {"max":487,"min":229,"avg":326,"active":0,"complete":15,"success":15,"errored":0,"retried":0,"total":15,"elapsed":508}
+[debug] [2023-06-20T08:07:10.554Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/850363807230/sites/myfirebasefreehosting/versions/293a81f2148c42b7:populateFiles [none]
+[debug] [2023-06-20T08:07:10.555Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/850363807230/sites/myfirebasefreehosting/versions/293a81f2148c42b7:populateFiles {"files":{"/404.html":"daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa","/index.html":"80651480aedf4c790a9b6c88ab0158d5c62633b16d288ec4b0d0c7d75e3bb8db","/vercel.svg":"1c03fbc03ff9ecf3469972d378778b1aea296f8ab9cb540af9d42c7848f52888","/next.svg":"dd6837ad10912a1f5820eb31ad506e500d83be91a8635fcfa59b04d06f671fdc","/images/no-image.jpg":"de829780f189212718966718f1003992fd4e44c5f4fc2ae39c3ad4a78c761064","/images/noarticles.png":"2549530c56ee356236f205a1ae5bf0c64730fac2c46a3482d4b1e6a5d4de88c9","/images/background-2.jpg":"c5c97a52f1929cf3eea0c2b56ffe15d9e7eb373867581c2c46b1855f6a18d2fd","/images/background-1.jpg":"bdb0ceb612f805f484062eca9cc564bf8ca51db2eec4316f28c50165c6e3265a","/images/background-3.jpg":"a3f72af7e8fb932cf07de91694f43d8343d96748578d9ef29153116adfb8bc3a","/images/about.jpg":"4e9779fb05d40c6209a8c654599244f15c79bd6e3273ebb875d560c1a73db7d7","/images/logo.png":"bcfc73495c95e447cf5a0bc47f89c701a7f81f679f74713e9faa48d7f13b7098","/images/activities-placeholder.jpg":"2a513b58254a69e19939b574ce79394525ad668513bd751421f2a3e458aa2eb0","/images/health.jpg":"ccb8a1264d7b7ffc304df810c3e48482b953d8fa1681d2a59ce89054f7896fe2","/images/who-we-are.jpg":"ec567891a09501b8912ec79a486ae5a4514fc71fa980245664eaf7ad9f996ec8","/images/values.jpg":"906eb032e8c1f1ae9dcd752ec5e0e508b8ae108331fb4e89e0e0875797887908"}}
+[debug] [2023-06-20T08:07:12.263Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/850363807230/sites/myfirebasefreehosting/versions/293a81f2148c42b7:populateFiles 200
+[debug] [2023-06-20T08:07:12.264Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/850363807230/sites/myfirebasefreehosting/versions/293a81f2148c42b7:populateFiles {"uploadRequiredHashes":["ec567891a09501b8912ec79a486ae5a4514fc71fa980245664eaf7ad9f996ec8","c5c97a52f1929cf3eea0c2b56ffe15d9e7eb373867581c2c46b1855f6a18d2fd","dd6837ad10912a1f5820eb31ad506e500d83be91a8635fcfa59b04d06f671fdc","4e9779fb05d40c6209a8c654599244f15c79bd6e3273ebb875d560c1a73db7d7","906eb032e8c1f1ae9dcd752ec5e0e508b8ae108331fb4e89e0e0875797887908","2a513b58254a69e19939b574ce79394525ad668513bd751421f2a3e458aa2eb0","ccb8a1264d7b7ffc304df810c3e48482b953d8fa1681d2a59ce89054f7896fe2","1c03fbc03ff9ecf3469972d378778b1aea296f8ab9cb540af9d42c7848f52888","2549530c56ee356236f205a1ae5bf0c64730fac2c46a3482d4b1e6a5d4de88c9","bcfc73495c95e447cf5a0bc47f89c701a7f81f679f74713e9faa48d7f13b7098","de829780f189212718966718f1003992fd4e44c5f4fc2ae39c3ad4a78c761064","daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa","80651480aedf4c790a9b6c88ab0158d5c62633b16d288ec4b0d0c7d75e3bb8db","a3f72af7e8fb932cf07de91694f43d8343d96748578d9ef29153116adfb8bc3a","bdb0ceb612f805f484062eca9cc564bf8ca51db2eec4316f28c50165c6e3265a"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files"}
+[debug] [2023-06-20T08:07:12.278Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/ec567891a09501b8912ec79a486ae5a4514fc71fa980245664eaf7ad9f996ec8 [none]
+[debug] [2023-06-20T08:07:12.278Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/ec567891a09501b8912ec79a486ae5a4514fc71fa980245664eaf7ad9f996ec8 [stream]
+[debug] [2023-06-20T08:07:12.282Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/c5c97a52f1929cf3eea0c2b56ffe15d9e7eb373867581c2c46b1855f6a18d2fd [none]
+[debug] [2023-06-20T08:07:12.283Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/c5c97a52f1929cf3eea0c2b56ffe15d9e7eb373867581c2c46b1855f6a18d2fd [stream]
+[debug] [2023-06-20T08:07:12.286Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/dd6837ad10912a1f5820eb31ad506e500d83be91a8635fcfa59b04d06f671fdc [none]
+[debug] [2023-06-20T08:07:12.286Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/dd6837ad10912a1f5820eb31ad506e500d83be91a8635fcfa59b04d06f671fdc [stream]
+[debug] [2023-06-20T08:07:12.289Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/4e9779fb05d40c6209a8c654599244f15c79bd6e3273ebb875d560c1a73db7d7 [none]
+[debug] [2023-06-20T08:07:12.289Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/4e9779fb05d40c6209a8c654599244f15c79bd6e3273ebb875d560c1a73db7d7 [stream]
+[debug] [2023-06-20T08:07:12.293Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/906eb032e8c1f1ae9dcd752ec5e0e508b8ae108331fb4e89e0e0875797887908 [none]
+[debug] [2023-06-20T08:07:12.293Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/906eb032e8c1f1ae9dcd752ec5e0e508b8ae108331fb4e89e0e0875797887908 [stream]
+[debug] [2023-06-20T08:07:12.298Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/2a513b58254a69e19939b574ce79394525ad668513bd751421f2a3e458aa2eb0 [none]
+[debug] [2023-06-20T08:07:12.298Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/2a513b58254a69e19939b574ce79394525ad668513bd751421f2a3e458aa2eb0 [stream]
+[debug] [2023-06-20T08:07:12.302Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/ccb8a1264d7b7ffc304df810c3e48482b953d8fa1681d2a59ce89054f7896fe2 [none]
+[debug] [2023-06-20T08:07:12.302Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/ccb8a1264d7b7ffc304df810c3e48482b953d8fa1681d2a59ce89054f7896fe2 [stream]
+[debug] [2023-06-20T08:07:12.306Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/1c03fbc03ff9ecf3469972d378778b1aea296f8ab9cb540af9d42c7848f52888 [none]
+[debug] [2023-06-20T08:07:12.306Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/1c03fbc03ff9ecf3469972d378778b1aea296f8ab9cb540af9d42c7848f52888 [stream]
+[debug] [2023-06-20T08:07:12.309Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/2549530c56ee356236f205a1ae5bf0c64730fac2c46a3482d4b1e6a5d4de88c9 [none]
+[debug] [2023-06-20T08:07:12.309Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/2549530c56ee356236f205a1ae5bf0c64730fac2c46a3482d4b1e6a5d4de88c9 [stream]
+[debug] [2023-06-20T08:07:12.311Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/bcfc73495c95e447cf5a0bc47f89c701a7f81f679f74713e9faa48d7f13b7098 [none]
+[debug] [2023-06-20T08:07:12.311Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/bcfc73495c95e447cf5a0bc47f89c701a7f81f679f74713e9faa48d7f13b7098 [stream]
+[debug] [2023-06-20T08:07:12.314Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/de829780f189212718966718f1003992fd4e44c5f4fc2ae39c3ad4a78c761064 [none]
+[debug] [2023-06-20T08:07:12.314Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/de829780f189212718966718f1003992fd4e44c5f4fc2ae39c3ad4a78c761064 [stream]
+[debug] [2023-06-20T08:07:12.317Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa [none]
+[debug] [2023-06-20T08:07:12.317Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa [stream]
+[debug] [2023-06-20T08:07:12.320Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/80651480aedf4c790a9b6c88ab0158d5c62633b16d288ec4b0d0c7d75e3bb8db [none]
+[debug] [2023-06-20T08:07:12.320Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/80651480aedf4c790a9b6c88ab0158d5c62633b16d288ec4b0d0c7d75e3bb8db [stream]
+[debug] [2023-06-20T08:07:12.322Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/a3f72af7e8fb932cf07de91694f43d8343d96748578d9ef29153116adfb8bc3a [none]
+[debug] [2023-06-20T08:07:12.322Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/a3f72af7e8fb932cf07de91694f43d8343d96748578d9ef29153116adfb8bc3a [stream]
+[debug] [2023-06-20T08:07:12.326Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/bdb0ceb612f805f484062eca9cc564bf8ca51db2eec4316f28c50165c6e3265a [none]
+[debug] [2023-06-20T08:07:12.326Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/bdb0ceb612f805f484062eca9cc564bf8ca51db2eec4316f28c50165c6e3265a [stream]
+[debug] [2023-06-20T08:07:12.328Z] [hosting][populate queue][FINAL] {"max":1729,"min":1729,"avg":1729,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1779}
+[debug] [2023-06-20T08:07:12.328Z] [hosting] uploads queued: 15
+[debug] [2023-06-20T08:07:13.676Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/80651480aedf4c790a9b6c88ab0158d5c62633b16d288ec4b0d0c7d75e3bb8db 200
+[debug] [2023-06-20T08:07:13.676Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/80651480aedf4c790a9b6c88ab0158d5c62633b16d288ec4b0d0c7d75e3bb8db [stream]
+[debug] [2023-06-20T08:07:13.773Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa 200
+[debug] [2023-06-20T08:07:13.774Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/daa499dd96d8229e73235345702ba32f0793f0c8e5c0d30e40e37a5872be57aa [stream]
+[debug] [2023-06-20T08:07:13.796Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/de829780f189212718966718f1003992fd4e44c5f4fc2ae39c3ad4a78c761064 200
+[debug] [2023-06-20T08:07:13.796Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/de829780f189212718966718f1003992fd4e44c5f4fc2ae39c3ad4a78c761064 [stream]
+[debug] [2023-06-20T08:07:13.914Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/dd6837ad10912a1f5820eb31ad506e500d83be91a8635fcfa59b04d06f671fdc 200
+[debug] [2023-06-20T08:07:13.914Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/dd6837ad10912a1f5820eb31ad506e500d83be91a8635fcfa59b04d06f671fdc [stream]
+[debug] [2023-06-20T08:07:14.190Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/2549530c56ee356236f205a1ae5bf0c64730fac2c46a3482d4b1e6a5d4de88c9 200
+[debug] [2023-06-20T08:07:14.190Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/2549530c56ee356236f205a1ae5bf0c64730fac2c46a3482d4b1e6a5d4de88c9 [stream]
+[debug] [2023-06-20T08:07:14.845Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/c5c97a52f1929cf3eea0c2b56ffe15d9e7eb373867581c2c46b1855f6a18d2fd 200
+[debug] [2023-06-20T08:07:14.846Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/c5c97a52f1929cf3eea0c2b56ffe15d9e7eb373867581c2c46b1855f6a18d2fd [stream]
+[debug] [2023-06-20T08:07:14.889Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/bdb0ceb612f805f484062eca9cc564bf8ca51db2eec4316f28c50165c6e3265a 200
+[debug] [2023-06-20T08:07:14.889Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/bdb0ceb612f805f484062eca9cc564bf8ca51db2eec4316f28c50165c6e3265a [stream]
+[debug] [2023-06-20T08:07:15.378Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/a3f72af7e8fb932cf07de91694f43d8343d96748578d9ef29153116adfb8bc3a 200
+[debug] [2023-06-20T08:07:15.378Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/a3f72af7e8fb932cf07de91694f43d8343d96748578d9ef29153116adfb8bc3a [stream]
+[debug] [2023-06-20T08:07:15.578Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/1c03fbc03ff9ecf3469972d378778b1aea296f8ab9cb540af9d42c7848f52888 200
+[debug] [2023-06-20T08:07:15.578Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/1c03fbc03ff9ecf3469972d378778b1aea296f8ab9cb540af9d42c7848f52888 [stream]
+[debug] [2023-06-20T08:07:15.838Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/4e9779fb05d40c6209a8c654599244f15c79bd6e3273ebb875d560c1a73db7d7 200
+[debug] [2023-06-20T08:07:15.839Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/4e9779fb05d40c6209a8c654599244f15c79bd6e3273ebb875d560c1a73db7d7 [stream]
+[debug] [2023-06-20T08:07:16.839Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/bcfc73495c95e447cf5a0bc47f89c701a7f81f679f74713e9faa48d7f13b7098 200
+[debug] [2023-06-20T08:07:16.839Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/bcfc73495c95e447cf5a0bc47f89c701a7f81f679f74713e9faa48d7f13b7098 [stream]
+[debug] [2023-06-20T08:07:17.844Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/ccb8a1264d7b7ffc304df810c3e48482b953d8fa1681d2a59ce89054f7896fe2 200
+[debug] [2023-06-20T08:07:17.844Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/ccb8a1264d7b7ffc304df810c3e48482b953d8fa1681d2a59ce89054f7896fe2 [stream]
+[debug] [2023-06-20T08:07:18.378Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/906eb032e8c1f1ae9dcd752ec5e0e508b8ae108331fb4e89e0e0875797887908 200
+[debug] [2023-06-20T08:07:18.379Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/906eb032e8c1f1ae9dcd752ec5e0e508b8ae108331fb4e89e0e0875797887908 [stream]
+[debug] [2023-06-20T08:07:20.029Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/ec567891a09501b8912ec79a486ae5a4514fc71fa980245664eaf7ad9f996ec8 200
+[debug] [2023-06-20T08:07:20.030Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/ec567891a09501b8912ec79a486ae5a4514fc71fa980245664eaf7ad9f996ec8 [stream]
+[debug] [2023-06-20T08:07:26.791Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/2a513b58254a69e19939b574ce79394525ad668513bd751421f2a3e458aa2eb0 200
+[debug] [2023-06-20T08:07:26.792Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/myfirebasefreehosting/versions/293a81f2148c42b7/files/2a513b58254a69e19939b574ce79394525ad668513bd751421f2a3e458aa2eb0 [stream]
+[debug] [2023-06-20T08:07:26.792Z] [hosting][upload queue][FINAL] {"max":14524,"min":1400,"avg":4113.8,"active":0,"complete":15,"success":15,"errored":0,"retried":0,"total":15,"elapsed":14528}
+[info] +  hosting[myfirebasefreehosting]: file upload complete 
+[debug] [2023-06-20T08:07:26.796Z] [hosting] deploy completed after 16848ms
+[debug] [2023-06-20T08:07:26.807Z] [
+  {
+    "config": {
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "site": "myfirebasefreehosting"
+    },
+    "version": "projects/850363807230/sites/myfirebasefreehosting/versions/293a81f2148c42b7"
+  }
+]
+[info] i  hosting[myfirebasefreehosting]: finalizing version... 
+[debug] [2023-06-20T08:07:26.817Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/myfirebasefreehosting/versions/293a81f2148c42b7 updateMask=status%2Cconfig
+[debug] [2023-06-20T08:07:26.818Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/myfirebasefreehosting/versions/293a81f2148c42b7 {"status":"FINALIZED","config":{}}
+[debug] [2023-06-20T08:07:27.964Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/myfirebasefreehosting/versions/293a81f2148c42b7 200
+[debug] [2023-06-20T08:07:27.964Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/myfirebasefreehosting/versions/293a81f2148c42b7 {"name":"projects/850363807230/sites/myfirebasefreehosting/versions/293a81f2148c42b7","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-06-20T08:07:09.076117Z","createUser":{"email":"chinemeremnwaegerue@gmail.com"},"finalizeTime":"2023-06-20T08:07:27.927857Z","finalizeUser":{"email":"chinemeremnwaegerue@gmail.com"}}
+[debug] [2023-06-20T08:07:27.965Z] [hosting] finalized version for myfirebasefreehosting:[object Object]
+[info] +  hosting[myfirebasefreehosting]: version finalized 
+[info] i  hosting[myfirebasefreehosting]: releasing new version... 
+[debug] [2023-06-20T08:07:27.968Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/myfirebasefreehosting/channels/live/releases versionName=projects%2F850363807230%2Fsites%2Fmyfirebasefreehosting%2Fversions%2F293a81f2148c42b7
+[debug] [2023-06-20T08:07:27.968Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/myfirebasefreehosting/channels/live/releases {}
+[debug] [2023-06-20T08:07:29.600Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/myfirebasefreehosting/channels/live/releases 200
+[debug] [2023-06-20T08:07:29.600Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/myfirebasefreehosting/channels/live/releases {"name":"projects/850363807230/sites/myfirebasefreehosting/channels/live/releases/1687248448579000","version":{"name":"projects/850363807230/sites/myfirebasefreehosting/versions/293a81f2148c42b7","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-06-20T08:07:09.076117Z","createUser":{"email":"chinemeremnwaegerue@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtd326A7ssUf-kkhBpKzPEdnp9MwJutpfpW0I6eV=mo"},"finalizeTime":"2023-06-20T08:07:27.927857Z","finalizeUser":{"email":"chinemeremnwaegerue@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtd326A7ssUf-kkhBpKzPEdnp9MwJutpfpW0I6eV=mo"}},"type":"DEPLOY","releaseTime":"2023-06-20T08:07:28.579Z","releaseUser":{"email":"chinemeremnwaegerue@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtd326A7ssUf-kkhBpKzPEdnp9MwJutpfpW0I6eV=mo"}}
+[debug] [2023-06-20T08:07:29.601Z] [hosting] release: {"name":"projects/850363807230/sites/myfirebasefreehosting/channels/live/releases/1687248448579000","version":{"name":"projects/850363807230/sites/myfirebasefreehosting/versions/293a81f2148c42b7","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-06-20T08:07:09.076117Z","createUser":{"email":"chinemeremnwaegerue@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtd326A7ssUf-kkhBpKzPEdnp9MwJutpfpW0I6eV=mo"},"finalizeTime":"2023-06-20T08:07:27.927857Z","finalizeUser":{"email":"chinemeremnwaegerue@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtd326A7ssUf-kkhBpKzPEdnp9MwJutpfpW0I6eV=mo"}},"type":"DEPLOY","releaseTime":"2023-06-20T08:07:28.579Z","releaseUser":{"email":"chinemeremnwaegerue@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtd326A7ssUf-kkhBpKzPEdnp9MwJutpfpW0I6eV=mo"}}
+[info] +  hosting[myfirebasefreehosting]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/myfirebasefreehosting/overview
+[info] Hosting URL: https://myfirebasefreehosting.web.app
+[debug] [2023-06-20T08:07:35.481Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\hp\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:253:49)
+    at listOnTimeout (node:internal/timers:564:17)
+    at process.processTimers (node:internal/timers:507:7)
+[error] 
+[error] Error: An unexpected error has occurred.

@@ -90,10 +90,8 @@ export default function Home() {
 
       <Container>
         <div className="grid grid-cols-8 gap-4">
-          <FadeInLeftScroll className="relative col-span-4 aspect-[1/1.2] self-center">
-            <Image src={backgroundone} layout="fill" objectFit="cover" alt="background image hero"/>
-          </FadeInLeftScroll>
-
+          <Image src={backgroundone} layout="fill" objectFit="cover" alt="background image hero"/>
+          
           <div className="grid  grid-cols-4 col-span-4 gap-4">
             <div className="relative col-span-4 aspect-[1/1]">
             <Image src={backgroundtwo} layout="fill" objectFit="cover" alt="background image hero"/>

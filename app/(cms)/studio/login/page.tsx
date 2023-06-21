@@ -6,6 +6,8 @@ import { Axios } from "@/lib/auth/axios";
 import { setcookie } from "@/lib/auth/cookies/cookies";
 import { redirect, useRouter } from "next/navigation";
 import { Auth } from "@/lib/auth/user";
+import { Button } from "@/components/lib/ui/button";
+import { Loader2 } from "lucide-react";
 
 type formvalues = {
     password: string;
@@ -92,7 +94,15 @@ export default function Page() {
               <input type="password" name="password" placeholder="Password" value={formValues.password} onChange={(e) => setFormValues(prevState => ({...prevState, password:e.target.value}))}  className="py-2 px-2 bg-light-bg text-gray-600 rounded border border-solid border-light-border focus:border-primary-light focus:outline-none transition-all"/>
               {errors.password ? (<p>{errors.password}</p>) : ""}
 
-              <button className="btn-primary">{loading ? "loading..." : "Submit"}</button>
+              {
+                loading ? (
+                    <Button disabled className="btn-primary h-auto py-1">
+                           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        loading...
+                    </Button>): (
+                        <Button className="btn-primary h-auto py-1">Sign In</Button>
+                    )
+              }
           </form>
       </div>
   )
