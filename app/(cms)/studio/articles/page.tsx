@@ -35,7 +35,7 @@ export default async function Page() {
 
     const page = 1;
 
-    const limit = 6;
+    const limit = 3;
 
     const {articles, newAccessToken} = await getAllArticles(page, limit, user)
 

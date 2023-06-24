@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
+import { cache } from "react";
 
-export function getServerCookie(name:string) {
+export const  getServerCookie = cache((name:string) => {
    const cookieStore = cookies();
 
    const cookie:any = cookieStore.get(name);
@@ -10,4 +11,4 @@ export function getServerCookie(name:string) {
    }
 
    return JSON.parse(cookie?.value);
-}
+})

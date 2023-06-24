@@ -1,3 +1,4 @@
+"use client";
 import { Container, Title, Text, SubTitle } from "@/components/utility";
 import Link from "next/link";
 import placeholder from "@/public/images/activities-placeholder.jpg";
@@ -14,6 +15,12 @@ import { Slider } from "@/components/slider";
 import { FadeInLeftScroll, FadeUp, FadeUpScroll, MoveUp } from "@/components/lib/framer/scroll";
 import { getAllArticles } from "@/utils/articles";
 import { Paginate } from "@/components/paginate";
+import { Suspense, useEffect, useState } from "react";
+import { baseURL } from "@/lib/auth/axios";
+import { CmsArticle } from "@/components/article";
+import { LatestBlog } from "@/components/latest-blog";
+import { LoadingUI } from "@/components/loader";
+import { Button } from "@/components/lib/ui/button";
 
 const activitiesArray: propsCardInterface[] = [
   {
@@ -90,8 +97,10 @@ export default function Home() {
 
       <Container>
         <div className="grid grid-cols-8 gap-4">
-          <Image src={backgroundone} layout="fill" objectFit="cover" alt="background image hero"/>
-          
+          <div className="relative col-span-4 aspect-[1/0.6] self-center">
+            <Image src={backgroundone} fill className="object-cover" alt="background image hero"/>
+          </div>
+
           <div className="grid  grid-cols-4 col-span-4 gap-4">
             <div className="relative col-span-4 aspect-[1/1]">
             <Image src={backgroundtwo} layout="fill" objectFit="cover" alt="background image hero"/>
@@ -236,12 +245,19 @@ export default function Home() {
           </Container>
         </div>
 
-        <div>
+        <div className="mt-9">
             <Container>
                 <Title>Latest From Our Blog</Title>
 
-                <div>
+              
+                <Suspense fallback={<LoadingUI/>}>
+                     <LatestBlog/>
+                </Suspense>
 
+                <div className="flex mt-2">
+                    <Button className="btn-primary py-1 h-auto mx-auto" asChild>
+                        <Link href={"/blog"}>view all</Link>
+                    </Button>
                 </div>
             </Container>
         </div>

@@ -1,8 +1,10 @@
 import { Container, Title } from "@/components/utility";
-import { FaFacebook, FaLink, FaTwitter } from "react-icons/fa";
 import Image from "next/image";
-import stackImage from "@/public/images/about.jpg";
+import noImage from "@/public/images/no-image.jpg";
+import { Button } from "@/components/lib/ui/button";
 import Link from "next/link";
+import { baseURL } from "@/lib/auth/axios";
+import { ContentDisplay } from "@/components/content";
 
 type ParamsType = {
   params: {
@@ -10,132 +12,52 @@ type ParamsType = {
   };
 };
 
-export default async function Page({ params: { post } }: ParamsType) {
-  return (
-    <Container className="py-9">
-      <div className="grid grid-cols-5 gap-4 relative">
-        <div className="col-span-5 md:col-span-3">
-          <div className="flex gap-3">
-            <span>Written by: TheCodemaster</span>
+const getPublicArticle = async (id:string) => {
+    try {
+        const response = await fetch(`${baseURL}/api/public-article/get-article/${id}`);
 
-            <span>20 May 2023</span>
-          </div>
+        const data = await response.json();
 
-          <div>
-            <Title>How to Learn OOP</Title>
-          </div>
+        return data.data;
+    }catch(error) {
+      console.log(error)
+    }
+}
 
-          <div className="relative rounded overflow-hidden aspect-[1/1] mt-4">
-            <Image
-              src={stackImage}
-              layout="fill"
-              objectFit="cover"
-              alt="article-image"
-            />
-          </div>
 
-          <div className="mt-4">
-            <p className="leading-loose">
-              OOP is a very popular style of programming among developers. it
-              helps in code organization, re-usuabilty especially in big
-              projects where the code structure can be very strainous. The
-              Principle of oop are very straighfoward. In OOP instead of
-              creating functions or procedural way, we create and object, mostly
-              what we call classes. Lets see an example a social media app,
-              where users are allowed to carry out numerious functionalities,
-              the code can have a user class with methods and properties related
-              to a typical user.{" "}
-            </p>
-          </div>
-        </div>
+export default async function Page({params: {post}}:ParamsType) {
+    const article = await getPublicArticle(post)
 
-        <div className="md:col-span-2 col-span-5">
-          <div>
-            <div className="flex justify-between">
-              <div>
-                <p className="uppercase">share</p>
+
+    return (
+        <Container className="py-9">      
+              <div className="max-w-[750px] mx-auto">
+                  <div className="flex justify-between items-center">
+                      <span>{article.created_at}</span>
+                  </div>
+
+                  <div className="mt-4">
+                      <Title>
+                          {article.title}
+                      </Title>
+
+                      <div className="relative mt-4 aspect-[1/0.8]">
+                          <Image src={article.image_url ? article.image_url : noImage} className="object-cover object-center" fill  alt={article.title}/>
+                      </div>
+
+                      <div className="mt-4">
+                            <ContentDisplay retrievedContent={article.body}/>
+                      </div>
+                  </div>
+                
+                  <div className="flex mt-4">
+                      <Button className="btn-primary h-auto py-1 mx-auto" asChild>
+                          <Link href={"/blog"}>
+                            Back To Articles
+                          </Link>
+                      </Button>
+                  </div>
               </div>
-
-              <div className="flex gap-2">
-                <FaTwitter />
-                <FaLink />
-              </div>
-            </div>
-
-            <div className="mt-4">
-              <p className="uppercase">related posts</p>
-
-              <div className="flex flex-col gap-4 mt-4">
-                <div className="flex gap-3 items-center">
-                  <div className="relative w-[100px] aspect-[2/1] rounded overflow-hidden">
-                    <Image
-                      src={stackImage}
-                      layout="fill"
-                      objectFit="cover"
-                      alt="related-article-image"
-                    />
-                  </div>
-
-                  <div>
-                    <p>How to Succeed as a startup</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-3 items-center">
-                  <div className="relative w-[100px] aspect-[2/1] rounded overflow-hidden">
-                    <Image
-                      src={stackImage}
-                      layout="fill"
-                      objectFit="cover"
-                      alt="related-article-image"
-                    />
-                  </div>
-
-                  <div>
-                    <p>How to Succeed as a startup</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-3 items-center">
-                  <div className="relative w-[100px] aspect-[2/1] rounded overflow-hidden">
-                    <Image
-                      src={stackImage}
-                      layout="fill"
-                      objectFit="cover"
-                      alt="related-article-image"
-                    />
-                  </div>
-
-                  <div>
-                    <p>How to Succeed as a startup</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-3 items-center">
-                  <div className="relative w-[100px] aspect-[2/1] rounded overflow-hidden">
-                    <Image
-                      src={stackImage}
-                      layout="fill"
-                      objectFit="cover"
-                      alt="related-article-image"
-                    />
-                  </div>
-
-                  <div>
-                    <p>How to Succeed as a startup</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-7 flex justify-center">
-        <Link href="/blog">
-            <button className="btn-primary">Back To Blog</button>
-        </Link>
-      </div>
-    </Container>
-  );
+        </Container>
+    ) 
 }

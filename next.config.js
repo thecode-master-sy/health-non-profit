@@ -3,7 +3,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-
+  // output: "export",
   images: {
     remotePatterns: [
       {

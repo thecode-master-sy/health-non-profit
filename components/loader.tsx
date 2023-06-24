@@ -5,7 +5,8 @@ import Link from "next/link";
 import { FaAngleUp, FaEdit } from "react-icons/fa";
 
 
-export default function Loader() {
+
+export const LoadingUI = () => {
     const array = [1,2,3];
 
     return (

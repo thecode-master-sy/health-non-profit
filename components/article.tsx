@@ -62,7 +62,7 @@ export const Article = ({
 };
 
 
-export const CmsArticle = ({imageUrl, title, date, id}:{imageUrl:string, title:string, date:string, id:string}) => {
+export const CmsArticle = ({imageUrl, title, date, id, path}:{imageUrl:string, title:string, date:string, id:string, path:string}) => {
     return (
       <Card>
           <div className="p-4">
@@ -77,7 +77,7 @@ export const CmsArticle = ({imageUrl, title, date, id}:{imageUrl:string, title:s
                 <CardDescription>{date}</CardDescription> 
               </div>
                                             
-              <Link href={`/studio/articles/${id}`}>
+              <Link href={`${path}/${id}`}>
                   <FaEdit className="text-gray-400 text-xl"/>
               </Link>
           </CardFooter>
